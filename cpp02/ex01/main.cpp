@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 09:15:02 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 14:12:59 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:27:27 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main(void)
 
 	Fixed d(1);
 	std::cout << d.getRawBits() << std::endl;
+	Fixed e(1.5f);
+	std::cout << e.getRawBits() << std::endl;
 
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 09:16:01 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 14:07:49 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:24:32 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
@@ -26,6 +27,11 @@ class Fixed
 		void setRawBits(int const raw);
 		
 		Fixed(const int value);
+		Fixed(const float input);
+		
+		int toInt(void)const;
+		float toFloat(void)const;
+		// Fixed(const Fixed& copy);
 		
 	private:
 		int	fixed_point_value;
