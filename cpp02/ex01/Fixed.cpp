@@ -6,11 +6,15 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 09:19:10 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 09:28:16 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/07/15 11:58:23 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+/* ************************************************************************** */
+/*   ex00                                                                     */
+/* ************************************************************************** */
 
 Fixed::Fixed() : fixed_point_value(0)
 {
@@ -40,9 +44,19 @@ Fixed::Fixed(Fixed const &src)
 	*this = src;
 }
 
-Fixed &Fixed::operator = (Fixed const &rhs)
+Fixed & Fixed::operator = (Fixed const &rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	setRawBits(rhs.getRawBits());
 	return (*this);
+}
+
+/* ************************************************************************** */
+/*   ex01                                                                     */
+/* ************************************************************************** */
+
+Fixed::Fixed(int const value)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->fixed_point_value = value << this->n_fract_bits;
 }
