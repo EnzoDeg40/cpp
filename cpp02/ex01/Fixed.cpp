@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 09:19:10 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 11:58:23 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:13:12 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ Fixed & Fixed::operator = (Fixed const &rhs)
 /*   ex01                                                                     */
 /* ************************************************************************** */
 
-Fixed::Fixed(int const value)
+Fixed::Fixed(const int value)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->fixed_point_value = value << this->n_fract_bits;
+	// std::cout << "Fixed point value: " << this->fixed_point_value << std::endl;
 }

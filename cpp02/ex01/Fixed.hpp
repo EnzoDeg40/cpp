@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 09:16:01 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 11:58:33 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:07:49 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Fixed
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 		
-		Fixed::Fixed(int const value);
+		Fixed(const int value);
 		
 	private:
 		int	fixed_point_value;
