@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/09 11:35:25 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/18 13:01:41 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/07/18 13:09:31 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	main(int argc, char **argv)
 	std::ifstream infile;
 	std::string data;
 	
-	(void)argv;
 	if (argc != 4)
 	{
 		std::cerr << "sed file string1 string2" << std::endl;
