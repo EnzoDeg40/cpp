@@ -6,16 +6,14 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 22:28:03 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/02 09:27:54 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/02 09:40:45 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon &weapon)
+HumanA::HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon)
 {
-    this->_name = name;
-    this->_weapon = weapon;
     std::cout << "HumanA " << this->_name << " created with ";
     std::cout << weapon.getType() << std::endl;
 }
