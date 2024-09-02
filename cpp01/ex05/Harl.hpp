@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/18 13:08:58 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/02 13:01:55 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/02 12:40:01 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/02 13:02:57 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HARL_HPP
+# define HARL_HPP
+
 #include <iostream>
-#include "Harl.hpp"
 
-int	main()
+# define DEFAULT "\001\033[0;39m\002"
+# define GRAY "\001\033[1;90m\002"
+# define RED "\001\033[1;91m\002"
+# define YELLOW "\001\033[1;93m\002"
+# define BLUE "\001\033[1;94m\002"
+
+class Harl
 {
-	Harl harl;
+	public:
+		Harl(void);
+		~Harl();
+		void complain(std::string level);
+	private:
+		void debug(void);
+		void info(void);
+		void warning(void);
+		void error(void);
+};
 
-	harl.complain("debug");
-	harl.complain("info");
-	harl.complain("warning");
-	harl.complain("error");
-	harl.complain("unknown");
-	return 0;
-}
+#endif

@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+         #
+#    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/07/18 13:10:21 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/02 12:45:30 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harl
-SRC = main.cpp
+SRC = main.cpp Harl.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
