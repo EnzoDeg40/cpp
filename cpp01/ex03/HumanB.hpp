@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 22:28:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/08 22:53:05 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/02 09:26:43 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -22,5 +25,7 @@ class HumanB
         void setWeapon(Weapon &weapon);
     private:
         std::string _name;
-        Weapon *_weapon;
+        Weapon _weapon;
 };
+
+#endif

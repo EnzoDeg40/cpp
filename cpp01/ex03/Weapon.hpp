@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 22:05:32 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/08 22:49:03 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/02 09:27:07 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 #include <iostream>
 
@@ -22,3 +25,5 @@ class Weapon
     private:
         std::string _type;
 };
+
+#endif

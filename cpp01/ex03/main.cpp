@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 22:17:07 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/16 14:38:02 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/02 09:20:20 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "Weapon.hpp"
 #include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
@@ -23,4 +23,14 @@ int main()
     HumanA humanA("Enzo", weapon);
     humanA.attack();
 
+    weapon.setType("pomme");
+    humanA.setWeapon(weapon);
+    humanA.attack();
+
+    HumanB humanB("Julien");
+    humanB.attack();
+
+    weapon.setType("poire");
+    humanB.setWeapon(weapon);
+    humanB.attack();
 }

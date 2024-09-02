@@ -3,12 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 22:28:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/08 22:49:06 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/02 09:26:24 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 #include <iostream>
 #include "Weapon.hpp"
@@ -24,3 +27,5 @@ class HumanA
         std::string _name;
         Weapon _weapon;
 };
+
+#endif
