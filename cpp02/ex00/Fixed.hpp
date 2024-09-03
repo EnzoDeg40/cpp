@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 09:16:01 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 11:59:11 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/03 11:02:30 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/03 11:39:33 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Fixed
 {
 	public:
 		Fixed();
+		Fixed(const Fixed &other);
+		Fixed &operator=(const Fixed &other);
 		~Fixed();
-		Fixed(Fixed const &src);
-		Fixed & operator=(Fixed const &rhs);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 
