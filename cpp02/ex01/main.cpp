@@ -3,32 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 09:15:02 by edegraev          #+#    #+#             */
-/*   Updated: 2024/07/15 14:27:27 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/03 10:00:21 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/03 12:13:12 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+// Constructeur par défaut
+// Constructeur de recopie
+// Opérateur d’affectation
+// Destructeur
+
 #include "Fixed.hpp"
 
-int main(void)
+#include <iostream>
+
+// int main( void )
+// {
+// 	Fixed a;
+// 	Fixed b( a );
+// 	Fixed c;
+// 	c = b;
+	
+// 	std::cout << a.getRawBits() << std::endl;
+// 	std::cout << b.getRawBits() << std::endl;
+// 	std::cout << c.getRawBits() << std::endl;
+	
+// 	return 0;
+// }
+
+#include <iostream>
+int main( void )
 {
 	Fixed a;
-	Fixed b(a);
-	Fixed c;
+	Fixed const b( 10 );
+	Fixed const c( 42.42f );
+	Fixed const d( b );
 	
-	c = b;
-
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	Fixed d(1);
-	std::cout << d.getRawBits() << std::endl;
-	Fixed e(1.5f);
-	std::cout << e.getRawBits() << std::endl;
-
+	a = Fixed( 1234.4321f );
+	
+	std::cout << "a is " << a << std::endl;
+	std::cout << "b is " << b << std::endl;
+	std::cout << "c is " << c << std::endl;
+	std::cout << "d is " << d << std::endl;
+	
+	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 	return 0;
 }

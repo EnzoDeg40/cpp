@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+         #
+#    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/07/15 09:07:39 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/03 11:16:40 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
