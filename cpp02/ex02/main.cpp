@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 10:00:21 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/04 15:42:45 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:57:03 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,14 @@ int main( void )
     std::cout << "a == b = " << (a == b) << std::endl;
     std::cout << "a != b = " << (a != b) << std::endl;
     
+    std::cout << "a++ = " << a++ << std::endl;
+    std::cout << "a = " << a << std::endl;
+    std::cout << "a-- = " << a-- << std::endl;
+    std::cout << "a = " << a << std::endl;
+    std::cout << "++a = " << ++a << std::endl;
+    std::cout << "a = " << a << std::endl;
+    std::cout << "--a = " << --a << std::endl;
+    std::cout << "a = " << a << std::endl;
 
 	return 0;
 }
