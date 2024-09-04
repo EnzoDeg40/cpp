@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:02:30 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/03 11:39:33 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/04 11:50:53 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class Fixed
 		void setRawBits(int const raw);
 
 	private:
-		int	fixed_point_value;
-		static const int n_fract_bits = 8;
+		int	_fixed_point_value;
+		static const int _n_fract_bits = 8;
 };
 
 #endif

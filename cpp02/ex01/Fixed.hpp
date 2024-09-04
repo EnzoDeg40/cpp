@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:02:30 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/03 15:25:37 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/04 11:50:53 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Fixed
 		float toFloat(void) const;
 		int toInt(void) const;
 	private:
-		int	fixed_point_value;
-		static const int n_fract_bits = 8;
+		int	_fixed_point_value;
+		static const int _n_fract_bits = 8;
 };
 
 std::ostream &operator<<(std::ostream &str, Fixed const &fixed_nbr);
