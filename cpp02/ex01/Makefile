@@ -6,31 +6,34 @@
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/09/04 10:45:05 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/04 11:00:55 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fixed
 SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
+DEP = $(SRC:.cpp=.d)
 CXX = clang++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
-	$(CXX) $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(DEP)
 
 fclean: clean
 	rm -f $(NAME)
 
 re: fclean
 	$(MAKE) all
+
+-include $(DEP)
 
 .PHONY: all clean fclean re
