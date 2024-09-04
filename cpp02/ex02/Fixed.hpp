@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:02:30 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/04 14:35:00 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:42:23 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ class Fixed
 		Fixed(const Fixed &other);
         // Overloaded Operators
 		Fixed &operator=(const Fixed &other);
+        float operator>(Fixed fixed)const;
+        float operator<(Fixed fixed)const;
+        float operator>=(Fixed fixed)const;
+        float operator<=(Fixed fixed)const;
+        float operator==(Fixed fixed)const;
+        float operator!=(Fixed fixed)const;
         float operator+(Fixed fixed)const;
         float operator-(Fixed fixed)const;
         float operator*(Fixed fixed)const;

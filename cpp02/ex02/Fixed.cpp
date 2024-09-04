@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:00:20 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/04 14:35:44 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/04 15:42:15 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,36 @@ Fixed & Fixed::operator = (Fixed const & rhs)
 	if (this != &rhs)
         _fixed_point_value = rhs.getRawBits();
     return (*this);
+}
+
+float	Fixed::operator>(Fixed fixed) const
+{
+    return (toFloat() > fixed.toFloat());
+}
+
+float	Fixed::operator<(Fixed fixed) const
+{
+    return (toFloat() < fixed.toFloat());
+}
+
+float	Fixed::operator>=(Fixed fixed) const
+{
+    return (toFloat() >= fixed.toFloat());
+}
+
+float	Fixed::operator<=(Fixed fixed) const
+{
+    return (toFloat() <= fixed.toFloat());
+}
+
+float	Fixed::operator==(Fixed fixed) const
+{
+    return (toFloat() == fixed.toFloat());
+}
+
+float	Fixed::operator!=(Fixed fixed) const
+{
+    return (toFloat() != fixed.toFloat());
 }
 
 float	Fixed::operator+(Fixed fixed) const
