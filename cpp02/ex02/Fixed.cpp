@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 11:00:20 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/04 15:54:11 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/05 09:20:39 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,19 +150,33 @@ void Fixed::setRawBits(int const raw)
 	_fixed_point_value = raw;
 }
 
-// static Fixed &Fixed::min(Fixed &a, Fixed &b)
-// {
-//     if (a.toFloat() < b.toFloat())
-//         return (a.toFloat());
-//     return (b.toFloat());
-// }
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+    if (a < b)
+        return (a);
+    return (b);
+}
 
-// static const Fixed &Fixed::min(Fixed const &a, Fixed const &b)
-// {
-//     if (a.toFloat() < b.toFloat())
-//         return (a.toFloat());
-//     return (b.toFloat());
-// }
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+    if (a > b)
+        return (a);
+    return (b);
+}
+
+const Fixed	&Fixed::min(Fixed const &a, Fixed const &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+const Fixed	&Fixed::max(Fixed const &a, Fixed const &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
 
 // Out of class
 std::ostream	&operator<<(std::ostream &o, Fixed const &fixed)
