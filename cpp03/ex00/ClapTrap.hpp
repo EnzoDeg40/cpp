@@ -3,32 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:25:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/05 15:46:58 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/06 21:54:36 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-class ClassTrap {
+# include <iostream>
+
+class ClapTrap {
 	private:
-		int hitPoints;
-		int energyPoints;
-		int attackDamage;
+		int _hitPoints;
+		int _energyPoints;
+		int _attackDamage;
 
 	public:
 		// Constructeur
-		ClassTrap();
-		ClassTrap(const ClassTrap& other);
+		ClapTrap();
+		ClapTrap(const ClapTrap& other);
 
 		// Opérateur d'affectation
-		// ClassTrap& operator=(const ClassTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
 
 		// Destructeur
-		~ClassTrap();
+		~ClapTrap();
+
+		// Fonctions
+		// void attack(const std::string& target);
+		// void takeDamage(unsigned int amount);
+		// void beRepaired(unsigned int amount);
+		
 };
 
 #endif
