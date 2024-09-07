@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 15:38:48 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/06 22:46:26 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:09:17 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,21 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
-    // if(_energyPoints < 1)
-    // {
-    //     // std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
-    //     // message erreure
-    //     return;
-    // }
+    if (_energyPoints < 1)
+    {
+        std::cout << "ClapTrap " << _name << " can't attacks " << std::endl;
+        return;
+    }
     std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
     _energyPoints--;
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    _hitPoints -= amount;
+    if (_hitPoints < 1)
+        _hitPoints = 0;
+    std::cout << "ClapTrap " << _name << "'s HP is " << _hitPoints << " (-" << amount << ")" << std::endl;
 }
 
 void ClapTrap::setName(std::string name)
