@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 15:38:48 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/07 10:09:17 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:30:52 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void ClapTrap::attack(const std::string& target)
 {
     if (_energyPoints < 1)
     {
-        std::cout << "ClapTrap " << _name << " can't attacks " << std::endl;
+        std::cout << "ClapTrap " << _name << " can't attacks" << std::endl;
         return;
     }
-    std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
     _energyPoints--;
+    std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -60,6 +60,20 @@ void ClapTrap::takeDamage(unsigned int amount)
     if (_hitPoints < 1)
         _hitPoints = 0;
     std::cout << "ClapTrap " << _name << "'s HP is " << _hitPoints << " (-" << amount << ")" << std::endl;
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+    if (_energyPoints < 1)
+    {
+        std::cout << "ClapTrap " << _name << " can't be repaired" << std::endl;
+        return;
+    }
+    _hitPoints += amount;
+    _energyPoints--;
+    if (_hitPoints < 0)
+        _hitPoints = 0; 
+    std::cout << "ClapTrap " << _name << "'s HP is " << _hitPoints << " (+" << amount << ")" << std::endl;
 }
 
 void ClapTrap::setName(std::string name)

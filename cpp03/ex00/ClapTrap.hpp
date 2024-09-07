@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:25:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/07 10:01:20 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/07 10:24:40 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class ClapTrap {
 		// Fonctions
 		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
-		// void beRepaired(unsigned int amount);
+		void beRepaired(unsigned int amount);
 
         void setName(std::string name);
         std::string getName();
