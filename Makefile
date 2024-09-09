@@ -5,35 +5,36 @@
 #                                                     +:+ +:+         +:+      #
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/09/09 09:18:00 by edegraev         ###   ########.fr        #
+#    Created: 2024/09/05 08:56:42 by edegraev          #+#    #+#              #
+#    Updated: 2024/09/09 09:31:27 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = claptrap
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
-OBJ = $(SRC:.cpp=.o)
-DEP = $(SRC:.cpp=.d)
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MMD
+DIRS_CPP00 = cpp00/ex00 cpp00/ex01 cpp00/ex02
+DIRS_CPP01 = cpp01/ex00 cpp01/ex01 cpp01/ex02 cpp01/ex03 cpp01/ex04 cpp01/ex05 cpp01/ex06
+DIRS_CPP02 = cpp02/ex00 cpp02/ex01 cpp02/ex02
+DIRS = $(DIRS_CPP00) $(DIRS_CPP01) $(DIRS_CPP02)
 
-all: $(NAME)
+GREEN = \033[1;32m
+RESET = \033[0m
 
-$(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+all:
+	@for dir in $(DIRS); do \
+		echo "$(GREEN)Making: $$dir$(RESET)"; \
+		$(MAKE) -C $$dir; \
+	done
 
 clean:
-	rm -f $(OBJ) $(DEP)
+	@for dir in $(DIRS); do \
+		$(MAKE) clean -C $$dir; \
+	done
 
-fclean: clean
-	rm -f $(NAME)
-
+fclean:
+	@for dir in $(DIRS); do \
+		$(MAKE) fclean -C $$dir; \
+	done
+	
 re: fclean
 	$(MAKE) all
-
--include $(DEP)
 
 .PHONY: all clean fclean re
