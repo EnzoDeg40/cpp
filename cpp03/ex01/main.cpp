@@ -6,42 +6,29 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 14:18:07 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/07 10:31:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/10 18:40:23 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap clapTrap;
-    ClapTrap clapTrap2(clapTrap);
-    ClapTrap clapTrap3;
+    std::cout << "Test 1" << std::endl;
+    ScavTrap scavTrap("ScavTrap");
+    scavTrap.guardGate();
 
-    clapTrap3 = clapTrap2;
+    std::cout << "Test 2" << std::endl;
+    ScavTrap scavTrap2 = scavTrap;
+    scavTrap2.guardGate();
 
-    clapTrap.setName("Hugo");
-    
-    clapTrap.takeDamage(50);
-    clapTrap.takeDamage(50);
-    clapTrap.takeDamage(50);
+    std::cout << "Test 3" << std::endl;
+    ScavTrap scavTrap3("ScavTrap3");
+    scavTrap3 = scavTrap;
+    scavTrap3.guardGate();
 
-    clapTrap.beRepaired(50);
-    clapTrap.beRepaired(50);
-    clapTrap.beRepaired(50);
-    clapTrap.beRepaired(50);
-    
-    clapTrap.beRepaired(78912350);
-
-    clapTrap.takeDamage(50);
-
-    // for (size_t i = 0; i < 105; i++)
-    // {
-    //         clapTrap.attack("Enzo");
-
-    // }
-    
-    clapTrap.attack("Enzo");
+    std::cout << "End of tests" << std::endl;
 
     return (0);
 }

@@ -6,41 +6,48 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 09:09:38 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/10 16:28:18 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:12:10 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 // Constructeur par défaut
-ScavTrap::ScavTrap(std::string name) : _hitPoints(100), _energyPoints(50), _attackDamage(20), _name(name)
+
+// Constructor
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-    // todo remove
-    (void)_hitPoints;
-    (void)_energyPoints;
-    (void)_attackDamage;
+    std::cout << "ScavTrap " << _name << " is born" << std::endl;
 }
 
-// Affectation
-ScavTrap &ScavTrap::operator=(const ScavTrap &other)
-{
-    if (this != &other)
-    {
-        _hitPoints = other._hitPoints;
-        _energyPoints = other._energyPoints;
-        _attackDamage = other._attackDamage;
-        _name = other._name;
-    }
-    return *this;
-}
+// // Affectation
+// ScavTrap &ScavTrap::operator=(const ScavTrap &other)
+// {
+//     if (this != &other)
+//     {
+//         _hitPoints = other._hitPoints;
+//         _energyPoints = other._energyPoints;
+//         _attackDamage = other._attackDamage;
+//         _name = other._name;
+//     }
+//     std::cout << "ScavTrap " << _name << " is born by affectation" << std::endl;
+//     return *this;
+// }
 
-// Recopie
-ScavTrap::ScavTrap(const ScavTrap &other)
-{
-    *this = other;
-}
+// // Recopie
+// ScavTrap::ScavTrap(const ScavTrap &other)
+// {
+//     *this = other;
+//     std::cout << "ScavTrap " << _name << " is born by copy" << std::endl;
+// }
 
-// Destructor
-ScavTrap::~ScavTrap()
-{
-}
+// // Destructor
+// ScavTrap::~ScavTrap()
+// {
+//     std::cout << "ScavTrap " << _name << " is dead" << std::endl;
+// }
+
+// void ScavTrap::guardGate()
+// {
+//     std::cout << "ScavTrap " << _name << " have enterred in Gate keeper mode" << std::endl;
+// }

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:25:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/09 09:15:04 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:11:22 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap {
 	public:
 		// Constructeur
 		ClapTrap();
+        ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage);
 		ClapTrap(const ClapTrap& other);
 
 		// Opérateur d'affectation

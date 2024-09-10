@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 15:38:48 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/07 10:30:52 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:11:34 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@
 ClapTrap::ClapTrap() : _hitPoints(100), _energyPoints(100), _attackDamage(30), _name("unnamed")
 {
 	std::cout << "Construct ClapTrap " << _name << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hitPoints, int energyPoints, int attackDamage) : _hitPoints(hitPoints), _energyPoints(energyPoints), _attackDamage(attackDamage), _name(name)
+{
+    std::cout << "Construct ClapTrap " << _name << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other)
