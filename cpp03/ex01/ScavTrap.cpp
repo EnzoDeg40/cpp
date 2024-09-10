@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 09:09:38 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/10 21:12:10 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/10 21:56:24 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // Constructor
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
 {
-    std::cout << "ScavTrap " << _name << " is born" << std::endl;
+    std::cout << "ScavTrap " << name << " is born" << std::endl;
 }
 
 // // Affectation
