@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 14:18:07 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/11 10:38:20 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/11 15:57:26 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ int main()
     ScavTrap scavTrap3("Hugo");
     scavTrap3 = scavTrap;
     scavTrap3.guardGate();
+    std::cout << std::endl;
+
+    std::cout << "Test 4" << std::endl;
+    ScavTrap scavTrap4;
+    scavTrap4 = scavTrap;
+    scavTrap4.guardGate();
     std::cout << std::endl;
 
     std::cout << "Test end" << std::endl;
