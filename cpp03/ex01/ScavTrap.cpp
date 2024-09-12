@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 09:09:38 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/11 16:02:10 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/11 16:02:57 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
     _energyPoints = 50;
     _attackDamage = 20;
     _name = name;
-    std::cout << "Construct ScavTrap " << _name << << std::endl;
+    std::cout << "Construct ScavTrap " << _name << std::endl;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)

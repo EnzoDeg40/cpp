@@ -6,39 +6,38 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/06 14:18:07 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/11 15:57:26 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/12 15:23:17 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    std::cout << "Test 1" << std::endl;
-    ScavTrap scavTrap("Enzo");
-    scavTrap.guardGate();
-    std::cout << std::endl;
+    ClapTrap enzo("Enzo", 100, 100, 30);
+	ClapTrap hugo("Hugo", 100, 100, 30);
+	ClapTrap samuel("Samuel", 100, 100, 30);
+	ScavTrap anthony("Anthony");
+	FragTrap sarah("Sarah");
 
-    std::cout << "Test 2" << std::endl;
-    ScavTrap scavTrap2 = scavTrap;
-    scavTrap2.guardGate();
-    std::cout << std::endl;
-
-    std::cout << "Test 3" << std::endl;
-    ScavTrap scavTrap3("Hugo");
-    scavTrap3 = scavTrap;
-    scavTrap3.guardGate();
-    std::cout << std::endl;
-
-    std::cout << "Test 4" << std::endl;
-    ScavTrap scavTrap4;
-    scavTrap4 = scavTrap;
-    scavTrap4.guardGate();
-    std::cout << std::endl;
-
-    std::cout << "Test end" << std::endl;
-    std::cout << std::endl;
+	enzo.attack("Maxime");
+	enzo.attack("Julien");
+	enzo.attack("Fabrice");
+	enzo.takeDamage(5);
+	hugo.takeDamage(9);
+	hugo.takeDamage(10);
+	samuel.beRepaired(10);
+	samuel.takeDamage(19);
+	anthony.attack("Lylou");
+	anthony.takeDamage(99);
+	anthony.beRepaired(50);
+	anthony.guardGate();
+	sarah.attack("Alexis");
+	sarah.takeDamage(99);
+	sarah.beRepaired(50);
+	sarah.highFivesGuys();
 
     return (0);
 }

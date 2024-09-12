@@ -6,24 +6,21 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 15:38:48 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/09 15:57:03 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:40:22 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-#include <stdio.h>
 
 ClapTrap::ClapTrap() : _hitPoints(100), _energyPoints(100), _attackDamage(30), _name("unnamed")
 {
     std::cout << "Construct ClapTrap " << _name << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other) : _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage), _name(other._name)
+ClapTrap::ClapTrap(const ClapTrap &other) : _hitPoints(other._hitPoints), _energyPoints(other._energyPoints), _attackDamage(other._attackDamage), _name(other._name)
 {
     std::cout << "Constructeur de recopie appelé." << std::endl;
 }
-
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {

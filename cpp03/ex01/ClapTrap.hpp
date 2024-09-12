@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 10:25:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/10 21:54:16 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/12 11:40:39 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
+#include <stdio.h>
 
 class ClapTrap
 {
 private:
-
 protected:
     int _hitPoints;
     int _energyPoints;
     int _attackDamage;
     std::string _name;
-
 
 public:
     // Constructeur
