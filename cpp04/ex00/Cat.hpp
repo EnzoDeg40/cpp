@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 10:45:01 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/20 10:45:13 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:10:31 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ public:
 	~Cat();
 	Cat(const Cat& other);
 	Cat& operator=(const Cat& other);
+	void makeSound() const;
 };

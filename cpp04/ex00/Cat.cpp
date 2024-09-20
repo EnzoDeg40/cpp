@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 10:44:17 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/20 10:44:32 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:10:12 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,9 @@ Cat& Cat::operator=(const Cat& other)
 	type = other.type;
 	std::cout << "Cat assignation operator called" << std::endl;
 	return (*this);
+}
+
+void Cat::makeSound() const
+{
+	std::cout << "Miaouuuuuu\n";
 }

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 10:33:51 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/20 10:34:21 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:10:35 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,9 @@ Dog& Dog::operator=(const Dog& other)
 	type = other.type;
 	std::cout << "Dog assignation operator called" << std::endl;
 	return (*this);
+}
+
+void Dog::makeSound() const
+{
+	std::cout << "Wouafff\n";
 }

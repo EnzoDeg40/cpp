@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 10:27:33 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/20 10:34:14 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:10:47 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,5 @@ public:
 	~Dog();
 	Dog(const Dog& other);
 	Dog& operator=(const Dog& other);
+	void makeSound() const;
 };
-
-

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 09:28:46 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/20 10:47:05 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:27:31 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,25 @@
 int main()
 {
 	// Animal* animal = new Animal();
-	// Animal* animal2 = new Animal(*animal);
-	// delete animal;
-	// delete animal2;
-	// return (0);
+	// animal->makeSound();
 
-	Dog* dog = new Dog();
-	Cat* cat = new Cat();
+	// Dog* dog = new Dog();
+	// Cat* cat = new Cat();
+
+	// dog->makeSound();
+	// cat->makeSound();
 	
-	delete dog;
-	delete cat;
+	// delete dog;
+	// delete cat;
+
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	
+	i->makeSound();
+	j->makeSound();
+	meta->makeSound();
 }
