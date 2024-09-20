@@ -6,12 +6,12 @@
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/09/20 10:45:22 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/20 14:42:54 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = animal
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp #WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(SRC:.cpp=.d)
 CXX = c++
