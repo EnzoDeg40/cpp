@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 09:25:56 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/20 14:15:23 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:02:47 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 #include <iostream>
 
-class Animal
+class AAnimal
 {
 protected:
 	std::string type;
 public:
-	Animal();
-	virtual ~Animal();
-	Animal(const Animal& other);
-	Animal& operator=(const Animal& other);
-	virtual void makeSound() const;
+	AAnimal();
+	virtual ~AAnimal();
+	AAnimal(const AAnimal& other);
+	AAnimal& operator=(const AAnimal& other);
+	virtual void makeSound() const = 0;
 	std::string getType() const;
 };
 

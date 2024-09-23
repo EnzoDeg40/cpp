@@ -6,12 +6,12 @@
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/09/23 09:14:52 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/23 13:03:10 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = animal
-SRC = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+SRC = main.cpp AAnimal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJ_DIR = obj
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 DEP = $(SRC:%.cpp=$(OBJ_DIR)/%.d)

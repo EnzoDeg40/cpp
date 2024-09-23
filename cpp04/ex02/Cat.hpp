@@ -6,15 +6,15 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 10:45:01 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/23 10:00:39 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:03:48 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal
+class Cat : public AAnimal
 {
 private:
 	Brain* brain;
