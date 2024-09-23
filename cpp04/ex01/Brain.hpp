@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 10:45:01 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/23 10:00:39 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/23 09:13:52 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/23 09:45:36 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
 
-class Cat : public Animal
+#include <iostream>
+
+class Brain
 {
 private:
-	Brain* brain;
+	std::string ideas[100];
 public:
-	Cat();
-	~Cat();
-	Cat(const Cat& other);
-	Cat& operator=(const Cat& other);
-	void makeSound() const;
+	Brain();
+	~Brain();
+	Brain& operator=(const Brain& other);
+	Brain(const Brain& other);
 };
