@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:43:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/23 20:53:50 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/23 21:08:54 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ public:
     ClapTrap& operator=(const ClapTrap& other);
     ClapTrap(const ClapTrap& other);
     
-    // void attack(const std::string& target);
-    // void takeDamage(unsigned int amount);
-    // void beRepaired(unsigned int amount);
+    void attack(const std::string& target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
 
