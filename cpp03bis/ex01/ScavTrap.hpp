@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 10:01:33 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/24 10:34:15 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/25 09:00:43 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 09:33:02 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #pragma once
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#pragma once
 
 #include "ClapTrap.hpp"
 #include <iostream>
@@ -20,10 +18,10 @@
 class ScavTrap : public ClapTrap
 {
 private:
-
+	/* data */
 public:
-    ScavTrap(const std::string& name);
-    ~ScavTrap();
+	ScavTrap(std::string name);
+	~ScavTrap();
+	ScavTrap& operator=(const ScavTrap& other);
+	ScavTrap(const ScavTrap& other);
 };
-
-#endif
