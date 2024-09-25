@@ -6,12 +6,12 @@
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/09/25 09:06:38 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/25 10:07:40 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavtrap
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp
+NAME = fragtrap
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(SRC:.cpp=.d)
 CXX = c++
