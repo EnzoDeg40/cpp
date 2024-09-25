@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 14:43:37 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/24 09:33:19 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:00:19 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 
 void ClapTrap::attack(const std::string& target)
 {
+    if (_hp < 1)
+    {
+        std::cout << "ClapTrap " << _name << " can't attack because he is dead." << std::endl;
+        return;
+    }
     if (_energy < 1)
     {
         std::cout << "ClapTrap " << _name << " has not enough energy to attack." << std::endl;
@@ -62,6 +67,11 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+    if(_hp < 1)
+    {
+        std::cout << "ClapTrap " << _name << " can't be repaired because he is dead." << std::endl;
+        return;
+    }
     if (_energy < 1)
     {
         std::cout << "ClapTrap " << _name << " has not enough energy to be repaired." << std::endl;

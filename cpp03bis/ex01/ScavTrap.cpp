@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:03:57 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/25 09:32:51 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/25 10:02:47 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,24 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 	return *this;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other)
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = other;
+}
+
+void ScavTrap::guardGate()
+{
+	if (_hp < 1)
+	{
+		std::cout << "ScavTrap " << _name << " can't guard the gate because he is dead." << std::endl;
+		return;
+	}
+	if (_energy < 1)
+	{
+		std::cout << "ScavTrap " << _name << " has not enough energy to guard the gate." << std::endl;
+		return;
+	}
+	_energy--;
+	std::cout << "ScavTrap " << _name << " have enterred in Gate keeper mode." << std::endl;
 }
