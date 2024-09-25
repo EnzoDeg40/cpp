@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 10:08:15 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/25 15:28:19 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/25 10:36:51 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 15:06:28 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "DiamondTrap.hpp"
 
-#include "ClapTrap.hpp"
-#include <iostream>
-
-class FragTrap : public ClapTrap
+DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name)
 {
-private:
-	/* data */
-public:
-	FragTrap(std::string name);
-	~FragTrap();
-	FragTrap& operator=(const FragTrap& other);
-	FragTrap(const FragTrap& other);
-	
-	void highFivesGuys(void);
-};
+	std::cout << "DiamondTrap constructor called" << std::endl;
+	_name = name;
+	// ScavTrap::_hp = 100;
+}
 
-
+DiamondTrap::~DiamondTrap()
+{
+	std::cout << "DiamondTrap destructor called" << std::endl;
+}

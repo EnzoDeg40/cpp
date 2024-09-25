@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 10:08:15 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/25 15:28:19 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/25 10:39:51 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 15:27:18 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "ClapTrap.hpp"
-#include <iostream>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class FragTrap : public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
 private:
-	/* data */
+	std::string	_name;
 public:
-	FragTrap(std::string name);
-	~FragTrap();
-	FragTrap& operator=(const FragTrap& other);
-	FragTrap(const FragTrap& other);
-	
-	void highFivesGuys(void);
+	DiamondTrap(std::string name);
+	~DiamondTrap();
 };
 
-
+// TODO: Check name

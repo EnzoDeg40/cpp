@@ -6,13 +6,14 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 20:53:12 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/25 10:27:42 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:03:42 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
@@ -29,8 +30,10 @@ int main()
     // scavtrap2 = scavtrap;
     // scavtrap2.guardGate();
 
-    FragTrap fragtrap("Anthony");
-    fragtrap.highFivesGuys();
+    // FragTrap fragtrap("Anthony");
+    // fragtrap.highFivesGuys();
+
+    DiamondTrap diamondtrap("Diamond");
 
     return 0;
 }
