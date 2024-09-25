@@ -5,71 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 10:46:13 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/12 14:49:45 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/25 10:08:11 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 10:27:19 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
-	std::cout << "FragTrap has been created!" << std::endl;	
+	std::cout << "FragTrap constructor called" << std::endl;
+	_hp = 100;
+	_energy = 100;
+	_attack_damage = 30;
 }
 
-FragTrap::FragTrap(const std::string &name) : ClapTrap(name, 100, 100, 30)
-{
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
-	std::cout << "FragTrap " << name << " has been created!" << std::endl;
-}
-
-// Constructeur par copie
-FragTrap::FragTrap(const FragTrap &other) : ClapTrap(other)
-{
-	*this = other;
-	std::cout << "FragTrap copy constructor called!" << std::endl;
-}
-
-// Destructeur
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << _name << " has been destroyed!" << std::endl;
+	std::cout << "FragTrap destructor called" << std::endl;
 }
 
-// Surcharge de l'opérateur d'affectation
-FragTrap &FragTrap::operator=(const FragTrap &other)
+FragTrap& FragTrap::operator=(const FragTrap& other)
 {
+	std::cout << "FragTrap assignation operator called" << std::endl;
 	if (this != &other)
 	{
 		_name = other._name;
-		_hitPoints = other._hitPoints;
-		_energyPoints = other._energyPoints;
-		_attackDamage = other._attackDamage;
+		_hp = other._hp;
+		_energy = other._energy;
+		_attack_damage = other._attack_damage;
 	}
-	std::cout << "FragTrap assignment operator called!" << std::endl;
 	return *this;
 }
 
-// Attack function
-void FragTrap::attack(std::string const &target)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	std::cout << "FragTrap " << this->_name;
-	if (_energyPoints > 0)
-	{
-		_energyPoints -= 5;
-		std::cout << " attacked " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
-	}
-	else
-		std::cout << " has too little energy points to attack." << std::endl;
-} 
+	std::cout << "FragTrap copy constructor called" << std::endl;
+	*this = other;
+}
 
-// Show message in console
-void FragTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys()
 {
-	std::cout << "FragTrap " << _name << " requests a positive high five!" << std::endl;
+	if (_hp < 1)
+	{
+		std::cout << "FragTrap " << _name << " can't high five because he is dead." << std::endl;
+		return;
+	}
+	if (_energy < 1)
+	{
+		std::cout << "FragTrap " << _name << " has not enough energy to high five." << std::endl;
+		return;
+	}
+	_energy--;
+	std::cout << "FragTrap " << _name << " high fives guys." << std::endl;
 }

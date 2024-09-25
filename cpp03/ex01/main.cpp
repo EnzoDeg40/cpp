@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:18:07 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/11 15:57:26 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/23 20:53:12 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 10:01:51 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,18 @@
 
 int main()
 {
-    std::cout << "Test 1" << std::endl;
-    ScavTrap scavTrap("Enzo");
-    scavTrap.guardGate();
-    std::cout << std::endl;
+    // ClapTrap claptrap("Enzo");
+    // ClapTrap claptrap2(claptrap);
+    // ClapTrap claptrap3 = claptrap;
 
-    std::cout << "Test 2" << std::endl;
-    ScavTrap scavTrap2 = scavTrap;
-    scavTrap2.guardGate();
-    std::cout << std::endl;
+    ScavTrap scavtrap("Hugo");
+    scavtrap.takeDamage(1000);
+    scavtrap.attack("Enzo");
+    scavtrap.guardGate();
 
-    std::cout << "Test 3" << std::endl;
-    ScavTrap scavTrap3("Hugo");
-    scavTrap3 = scavTrap;
-    scavTrap3.guardGate();
-    std::cout << std::endl;
+    ScavTrap scavtrap2("idk");
+    scavtrap2 = scavtrap;
+    scavtrap2.guardGate();
 
-    std::cout << "Test 4" << std::endl;
-    ScavTrap scavTrap4;
-    scavTrap4 = scavTrap;
-    scavTrap4.guardGate();
-    std::cout << std::endl;
-
-    std::cout << "Test end" << std::endl;
-    std::cout << std::endl;
-
-    return (0);
+    return 0;
 }

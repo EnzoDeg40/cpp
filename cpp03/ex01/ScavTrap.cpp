@@ -5,60 +5,57 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 09:09:38 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/11 16:02:57 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/25 09:03:57 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 10:25:29 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-// Constructor
-ScavTrap::ScavTrap() : ClapTrap("unnamed", 100, 50, 20)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
-    _name = "unnamed";
-    std::cout << "Construct ScavTrap " << _name << std::endl;
+	std::cout << "ScavTrap constructor called" << std::endl;
+	_hp = 100;
+	_energy = 50;
+	_attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20)
-{
-    _hitPoints = 100;
-    _energyPoints = 50;
-    _attackDamage = 20;
-    _name = name;
-    std::cout << "Construct ScavTrap " << _name << std::endl;
-}
-
-ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
-{
-    *this = other;
-    std::cout << "Construct ScavTrap " << _name << " by copy" << std::endl;
-}
-
-// Operator
-ScavTrap &ScavTrap::operator=(const ScavTrap &other)
-{
-    if (this != &other)
-    {
-        _hitPoints = other._hitPoints;
-        _energyPoints = other._energyPoints;
-        _attackDamage = other._attackDamage;
-        _name = other._name;
-    }
-    std::cout << "Construct ScavTrap " << _name << " by affectation" << std::endl;
-    return *this;
-}
-
-// Destructor
 ScavTrap::~ScavTrap()
 {
-    std::cout << "Destroy ScavTrap " << _name << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-// Member function
+ScavTrap& ScavTrap::operator=(const ScavTrap& other)
+{
+	std::cout << "ScavTrap assignation operator called" << std::endl;
+	if (this != &other)
+	{
+		_name = other._name;
+		_hp = other._hp;
+		_energy = other._energy;
+		_attack_damage = other._attack_damage;
+	}
+	return *this;
+}
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
+{
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+	*this = other;
+}
+
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap " << _name << " have enterred in Gate keeper mode" << std::endl;
+	if (_hp < 1)
+	{
+		std::cout << "ScavTrap " << _name << " can't guard the gate because he is dead." << std::endl;
+		return;
+	}
+	if (_energy < 1)
+	{
+		std::cout << "ScavTrap " << _name << " has not enough energy to guard the gate." << std::endl;
+		return;
+	}
+	_energy--;
+	std::cout << "ScavTrap " << _name << " have enterred in Gate keeper mode." << std::endl;
 }

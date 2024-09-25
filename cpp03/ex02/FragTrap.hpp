@@ -5,31 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/12 10:54:40 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/12 13:44:41 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/25 10:08:15 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 10:27:10 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FLAGTRAP_HPP
-#define FLAGTRAP_HPP
+#pragma once
 
 #include "ClapTrap.hpp"
+#include <iostream>
 
-class FragTrap : public ClapTrap
+class FragTrap : ClapTrap
 {
+private:
+	/* data */
 public:
-	// Construct and destruct
-	FragTrap();
-	FragTrap(const std::string &name);
-	FragTrap(const FragTrap &other);
+	FragTrap(std::string name);
 	~FragTrap();
-
-	// Operator
-	FragTrap &operator=(const FragTrap &other);
-
-	// Member functions
-	void attack(const std::string &target);
+	FragTrap& operator=(const FragTrap& other);
+	FragTrap(const FragTrap& other);
+	
 	void highFivesGuys(void);
 };
 
-#endif
+

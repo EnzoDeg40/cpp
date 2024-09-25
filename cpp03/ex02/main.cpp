@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/06 14:18:07 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/12 15:23:17 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/23 20:53:12 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/25 10:27:42 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,21 @@
 
 int main()
 {
-    ClapTrap enzo("Enzo", 100, 100, 30);
-	ClapTrap hugo("Hugo", 100, 100, 30);
-	ClapTrap samuel("Samuel", 100, 100, 30);
-	ScavTrap anthony("Anthony");
-	FragTrap sarah("Sarah");
+    // ClapTrap claptrap("Enzo");
+    // ClapTrap claptrap2(claptrap);
+    // ClapTrap claptrap3 = claptrap;
 
-	enzo.attack("Maxime");
-	enzo.attack("Julien");
-	enzo.attack("Fabrice");
-	enzo.takeDamage(5);
-	hugo.takeDamage(9);
-	hugo.takeDamage(10);
-	samuel.beRepaired(10);
-	samuel.takeDamage(19);
-	anthony.attack("Lylou");
-	anthony.takeDamage(99);
-	anthony.beRepaired(50);
-	anthony.guardGate();
-	sarah.attack("Alexis");
-	sarah.takeDamage(99);
-	sarah.beRepaired(50);
-	sarah.highFivesGuys();
+    // ScavTrap scavtrap("Hugo");
+    // scavtrap.takeDamage(1000);
+    // scavtrap.attack("Enzo");
+    // scavtrap.guardGate();
 
-    return (0);
+    // ScavTrap scavtrap2("idk");
+    // scavtrap2 = scavtrap;
+    // scavtrap2.guardGate();
+
+    FragTrap fragtrap("Anthony");
+    fragtrap.highFivesGuys();
+
+    return 0;
 }

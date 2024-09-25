@@ -3,45 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/05 10:25:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/12 11:40:25 by edegraev         ###   ########.fr       */
+/*   Created: 2024/09/23 14:43:43 by edegraev          #+#    #+#             */
+/*   Updated: 2024/09/23 21:08:54 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_HPP
-#define CLAPTRAP_HPP
+#pragma once
 
 #include <iostream>
-#include <stdio.h>
 
 class ClapTrap
 {
 private:
-	int _hitPoints;
-	int _energyPoints;
-	int _attackDamage;
-	std::string _name;
-
+    std::string _name;
+    int _hp;
+    int _energy;
+    int _attack_damage;
 public:
-	// Constructeur
-	ClapTrap();
-	ClapTrap(const ClapTrap &other);
-
-	// Opérateur d'affectation
-	ClapTrap &operator=(const ClapTrap &other);
-
-	// Destructeur
-	~ClapTrap();
-
-	// Fonctions
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-
-	void setName(std::string name);
-	std::string getName();
+    ClapTrap(std::string name);
+    ~ClapTrap();
+    ClapTrap& operator=(const ClapTrap& other);
+    ClapTrap(const ClapTrap& other);
+    
+    void attack(const std::string& target);
+    void takeDamage(unsigned int amount);
+    void beRepaired(unsigned int amount);
 };
 
-#endif
+
