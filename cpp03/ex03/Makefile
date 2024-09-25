@@ -6,12 +6,12 @@
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/09/25 10:07:40 by edegraev         ###   ########.fr        #
+#    Updated: 2024/09/25 10:41:08 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fragtrap
-SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
+NAME = diamondtrap
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 DEP = $(SRC:.cpp=.d)
 CXX = c++
