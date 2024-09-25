@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 10:00:21 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/05 14:06:02 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/23 13:55:43 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,28 @@
 // }
 
 
-int main( void )
+// int main( void )
+// {
+//     Fixed a;
+//     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+//     std::cout << a << std::endl;
+//     std::cout << ++a << std::endl;
+//     std::cout << a << std::endl;
+//     std::cout << a++ << std::endl;
+//     std::cout << a << std::endl;
+//     std::cout << b << std::endl;
+//     std::cout << Fixed::max( a, b ) << std::endl;
+// 	return 0;
+// }
+
+int main()
 {
-    Fixed a;
-    Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    Fixed a(5.0f);
+    Fixed b(5.11954689489f);
+    
     std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
+    std::cout << a.getRawBits() << std::endl;
+
     std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+    std::cout << b.getRawBits() << std::endl;
 }
