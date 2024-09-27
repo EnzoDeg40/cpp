@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:00:43 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/25 09:51:16 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/27 10:07:18 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ public:
 	ScavTrap(const ScavTrap& other);
 	
 	void guardGate();
+	void attack(const std::string& target);
 };

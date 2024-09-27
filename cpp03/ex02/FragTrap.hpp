@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 10:08:15 by edegraev          #+#    #+#             */
-/*   Updated: 2024/09/25 15:00:18 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/09/27 10:10:16 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ public:
 	FragTrap(const FragTrap& other);
 	
 	void highFivesGuys(void);
+	void attack(const std::string& target);
 };
 
 
