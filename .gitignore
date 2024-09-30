@@ -13,3 +13,7 @@ animal
 pedago
 scavtrap
 diamondtrap
+
+microshell/*.c
+!microshell/soluce.c
+!microshell/template.c
