@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:24 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/04 12:49:01 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/04 13:15:01 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,10 @@ void Bureaucrat::decrementGrade()
 	if (this->_grade + 1 > MAX_GRADE)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade++;
+}
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
+{
+	out << "bureaucrate " << bureaucrat.getName() << " grade is " << bureaucrat.getGrade();
+	return out;
 }
