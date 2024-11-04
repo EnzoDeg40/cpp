@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:56 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/04 13:13:09 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:16:57 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ public:
 	void decrementGrade();
 };
 
+// out
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);

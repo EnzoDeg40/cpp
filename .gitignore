@@ -19,3 +19,4 @@ microshell/*.c
 !microshell/template.c
 
 bureaucrat
+form

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:24 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/04 13:15:01 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/04 15:17:03 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void Bureaucrat::decrementGrade()
 	this->_grade++;
 }
 
+// out
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 {
 	out << "bureaucrate " << bureaucrat.getName() << " grade is " << bureaucrat.getGrade();
