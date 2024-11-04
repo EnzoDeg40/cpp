@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:56 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/04 12:48:56 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/04 12:58:14 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ private:
 public:
 	// constructors
 	Bureaucrat(std::string const name, int grade);
-	Bureaucrat(const Bureaucrat& other);
-	Bureaucrat& operator=(const Bureaucrat& other);
+	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat &operator=(const Bureaucrat &other);
 	~Bureaucrat();
 
 	// getters
@@ -48,4 +48,6 @@ public:
 	// functions
 	void incrementGrade();
 	void decrementGrade();
+
+	// Vous implémenterez aussi une surcharge de l'opérateur d'insertion (<<) pour afficher quelque chose comme (sans les chevrons) : <nom>, bureaucrate grade <grade>.
 };
