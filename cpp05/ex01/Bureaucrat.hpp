@@ -14,6 +14,9 @@
 
 #include <iostream>
 
+#include "Form.hpp"
+class Form;
+
 #define MIN_GRADE 1
 #define MAX_GRADE 150
 
@@ -48,6 +51,7 @@ public:
 	// functions
 	void incrementGrade();
 	void decrementGrade();
+    void signForm(Form &form) const;
 };
 
 // out

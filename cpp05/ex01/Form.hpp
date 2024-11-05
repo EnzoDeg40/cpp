@@ -15,6 +15,7 @@
 #include <iostream>
 
 #include "Bureaucrat.hpp"
+class Bureaucrat;
 
 #define MIN_GRADE 1
 #define MAX_GRADE 150
