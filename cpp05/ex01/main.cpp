@@ -11,62 +11,29 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main()
 {
-	try
-	{
-		Bureaucrat b1("B1", 1);
-		std::cout << b1 << std::endl;
-		b1.incrementGrade();
-		std::cout << b1 << std::endl;
-		b1.incrementGrade();
-		std::cout << b1 << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    Bureaucrat *bureaucrat = new Bureaucrat("Bureaucrat", 1);
+    Form *form = new Form("Form", 1, 1);
 
-	std::cout << std::endl;
+    std::cout << *bureaucrat << std::endl;
+    std::cout << *form << std::endl;
 
-	try
-	{
-		Bureaucrat b2("B2", 150);
-		std::cout << b2 << std::endl;
-		b2.decrementGrade();
-		std::cout << b2 << std::endl;
-		b2.decrementGrade();
-		std::cout << b2 << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    try
+    {
+        form->beSigned(*bureaucrat);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
-	std::cout << std::endl;
+    std::cout << *form << std::endl;
 
-	try
-	{
-		Bureaucrat b3("B3", 0);
-		std::cout << b3 << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << std::endl;
-
-	try
-	{
-		Bureaucrat b4("B4", 151);
-		std::cout << b4 << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+    delete bureaucrat;
+    delete form;
 
 	return 0;
 }
