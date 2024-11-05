@@ -14,6 +14,8 @@
 
 #include <iostream>
 
+#include "Bureaucrat.hpp"
+
 #define MIN_GRADE 1
 #define MAX_GRADE 150
 
@@ -31,6 +33,9 @@ public:
 	Form(const Form &other);
 	Form &operator=(const Form &other);
 	~Form();
+
+    // functions
+    void beSigned(Bureaucrat &bureaucrat);
 
 	// getters
 	std::string getName() const;

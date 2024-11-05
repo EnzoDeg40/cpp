@@ -38,6 +38,14 @@ Form::~Form()
 {
 }
 
+// functions
+void Form::beSigned(Bureaucrat &bureaucrat)
+{
+    if (bureaucrat.getGrade() > this->_gradeToSign)
+        throw Form::GradeTooLowException();
+    this->_signed = true;
+}
+
 // getters
 std::string Form::getName() const
 {
