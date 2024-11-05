@@ -15,25 +15,35 @@
 
 int main()
 {
-    Bureaucrat *bureaucrat = new Bureaucrat("Bureaucrat", 1);
-    Form *form = new Form("Form", 1, 1);
+    Bureaucrat *bureaucrat = new Bureaucrat("Enzo", 1);
+    Form *si_form = new Form("SI_Form", 1, 1); // crash when gradeToExecute = 0
+    Form *rh_form = new Form("RH_Form", 2, 1);
 
     std::cout << *bureaucrat << std::endl;
-    std::cout << *form << std::endl;
+    std::cout << *si_form << std::endl;
+    std::cout << *rh_form << std::endl;
 
     try
     {
-        form->beSigned(*bureaucrat);
+        bureaucrat->signForm(*si_form);
     }
-    catch (std::exception &e)
+    catch(const std::exception &e)
     {
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << *form << std::endl;
+    try
+    {
+        bureaucrat->signForm(*rh_form);
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 
     delete bureaucrat;
-    delete form;
+    delete si_form;
+    delete rh_form;
 
 	return 0;
 }
