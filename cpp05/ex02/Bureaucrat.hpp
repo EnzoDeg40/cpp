@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:56 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/04 15:16:52 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/06 13:06:58 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 #include <iostream>
 
-#include "Form.hpp"
-class Form;
+#include "AForm.hpp"
+class AForm;
 
 #define MIN_GRADE 1
 #define MAX_GRADE 150
@@ -51,7 +51,7 @@ public:
 	// functions
 	void incrementGrade();
 	void decrementGrade();
-    void signForm(Form &form);
+    void signForm(AForm &form);
 };
 
 // out
