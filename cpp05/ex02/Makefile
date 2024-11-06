@@ -6,12 +6,12 @@
 #    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/11/04 14:14:25 by edegraev         ###   ########.fr        #
+#    Updated: 2024/11/06 12:42:03 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 28b
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = AForm.cpp Bureaucrat.cpp Form.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
 OBJ = $(SRC:.cpp=.o)
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
