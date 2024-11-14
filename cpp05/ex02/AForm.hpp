@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:35:27 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/06 13:05:18 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:40:06 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ public:
 	AForm &operator=(const AForm &other);
     virtual ~AForm();
 
-    virtual void nonexistent() const = 0; 
+    virtual void action() const = 0;
 
     // functions
     void beSigned(Bureaucrat &bureaucrat);
+    void execute(Bureaucrat const & executor) const;
 
 	// getters
 	std::string getName() const;
@@ -56,6 +57,11 @@ public:
 	{
 		const char *what() const throw();
 	};
+
+    class FormNotSignedException : public std::exception
+    {
+        const char *what() const throw();
+    };
 };
 
 // out
