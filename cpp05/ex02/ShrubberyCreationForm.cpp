@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:23:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/14 15:41:14 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:27:56 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) : AForm(other)
+{
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+{
+    if (this == &other)
+        return *this;
+    AForm::operator=(other);
+    return *this;
 }
 
 void ShrubberyCreationForm::action() const
