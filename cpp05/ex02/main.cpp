@@ -21,6 +21,7 @@ int main()
     ShrubberyCreationForm shrubberyCreationForm;
 
     bureaucrat->signForm(shrubberyCreationForm);
+    shrubberyCreationForm.execute(*bureaucrat);
 
 	return 0;
 }
