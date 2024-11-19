@@ -6,13 +6,13 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:23:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/19 11:30:56 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:40:09 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", "home", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const targetName) : AForm("ShrubberyCreationForm", targetName, 145, 137)
 {
 }
 
