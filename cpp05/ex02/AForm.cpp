@@ -6,14 +6,14 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:14:12 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/14 15:40:02 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:06:43 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 // constructors
-AForm::AForm(std::string const name, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+AForm::AForm(std::string const name, std::string const target, int gradeToSign, int gradeToExecute) : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _target(target)
 {
 	if (gradeToSign < MIN_GRADE || gradeToExecute < MIN_GRADE)
 		throw AForm::GradeTooHighException();
@@ -21,7 +21,7 @@ AForm::AForm(std::string const name, int gradeToSign, int gradeToExecute) : _nam
 		throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const AForm &other) : _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
+AForm::AForm(const AForm &other) : _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute), _target(other._target)
 {
 }
 

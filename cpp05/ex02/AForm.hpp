@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:35:27 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/14 15:40:06 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/19 11:06:31 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@ private:
 	bool _signed;
 	int const _gradeToSign;
 	int const _gradeToExecute;
+    std::string const _target;
 
 public:
 	// constructors
-	AForm(std::string const name, int gradeToSign, int gradeToExecute);
+	AForm(std::string const name, std::string const _target, int gradeToSign, int gradeToExecute);
 	AForm(const AForm &other);
 	AForm &operator=(const AForm &other);
     virtual ~AForm();
