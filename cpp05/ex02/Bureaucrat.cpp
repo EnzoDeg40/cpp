@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:24 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/06 13:06:27 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:51:52 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,20 @@ void Bureaucrat::signForm(AForm &form)
         std::cerr << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
     }
 }
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout << this->_name << " executes " << form.getName() << std::endl;
+    }
+    catch(const std::exception &e)
+    {
+        std::cerr << this->_name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
+    }
+}
+
 
 // out
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)

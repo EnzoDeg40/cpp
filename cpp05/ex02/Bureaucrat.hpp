@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:11:56 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/06 13:06:58 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/21 15:42:21 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ public:
 	void incrementGrade();
 	void decrementGrade();
     void signForm(AForm &form);
+    void executeForm(AForm const &form);
 };
 
 // out
