@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:23:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/19 11:40:09 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/21 11:07:15 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,9 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::action() const
 {
-    std::ofstream file("shrubbery_creation_shrubbery");
+    // std::ofstream file(getTarget() + "_shrubbery");
+    std::ofstream file((getTarget() + "_shrubbery").c_str());
+
     if (!file.is_open())
     {
         std::cerr << "Error: could not open the file." << std::endl;

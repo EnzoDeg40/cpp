@@ -47,6 +47,7 @@ public:
 	bool getSigned() const;
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
+    std::string getTarget() const;
 
 	// exceptions
 	class GradeTooHighException : public std::exception

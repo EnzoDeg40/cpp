@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:14:12 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/19 11:06:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/21 11:04:44 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ int AForm::getGradeToSign() const
 int AForm::getGradeToExecute() const
 {
 	return this->_gradeToExecute;
+}
+
+std::string AForm::getTarget() const
+{
+    return this->_target;
 }
 
 // exceptions
