@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:24:27 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/21 15:52:19 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/22 11:13:39 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -36,6 +37,10 @@ int main()
     bureaucrat->executeForm(shrubberyCreationForm);
     bureaucrat->executeForm(robotomyRequestForm);
     bureaucrat->executeForm(presidentialPardonForm);
+
+    // Intern someRandomIntern;
+    // Form* rrf;
+    // rrf = someRandomIntern.makeForm("robotomy request", "Bender");
     
 	return 0;
 }
