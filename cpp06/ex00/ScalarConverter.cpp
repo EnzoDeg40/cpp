@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/25 13:16:57 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:04:42 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,28 @@ void ScalarConverter::toChar(const std::string str)
     if (isprint(c))
         std::cout << "char:   " << c << std::endl;
     else
-        std::cout << "char:   unprintable" << c << std::endl;
+        std::cout << "char:   unprintable" << std::endl;
     std::cout << "int:    " << i << std::endl;
     std::cout << "float:  " << f << std::endl;
     std::cout << "double: " << d << std::endl;
+}
+
+void ScalarConverter::toInt(const std::string str)
+{
+    int i = atoi(str.c_str());
+    float f = static_cast<float>(i);
+
+    if (isprint(i))
+    {
+        char c = static_cast<char>(i);
+        std::cout << "char:   " << c << std::endl;   
+    }
+    else
+        std::cout << "char:   unprintable" << std::endl;
+
+    std::cout << "int:    " << i << std::endl;
+    std::cout << "float:  " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    std::cout << "double: " << i << std::endl;
 }
 
 void ScalarConverter::convert(const std::string str)
@@ -78,7 +96,7 @@ void ScalarConverter::convert(const std::string str)
     if (isInt(str))
     {
         std::cout << "isInt" << std::endl;
-        // toInt(str);
+        toInt(str);
         return;
     }
     // float

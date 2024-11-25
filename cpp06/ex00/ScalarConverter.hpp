@@ -6,11 +6,12 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:04:40 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/25 11:37:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/25 13:33:45 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 // #include <string.h>
 
 class ScalarConverter
@@ -28,6 +29,7 @@ private:
     static bool isInt(const std::string str);
 
     static void toChar(const std::string str);
+    static void toInt(const std::string str);
 
 };
 
