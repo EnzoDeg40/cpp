@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/25 11:35:39 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/25 13:16:57 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,31 @@ ScalarConverter::~ScalarConverter()
 
 bool ScalarConverter::isChar(const std::string str)
 {
-    if (str.size() == 1)
+    if (str.size() == 1 && !isdigit(str[0]))
         return true;
     if (str.size() == 3 && str[0] == '\"' && str[2] == '\"')
         return true;
     return false;
+}
+
+bool ScalarConverter::isInt(const std::string str)
+{
+    if (str.empty())
+        return false;
+
+    bool isNegative = (str[0] == '-');
+    bool isPositive = (str[0] == '+');
+    size_t start = (isNegative || isPositive) ? 1 : 0;
+
+    if (start == 1 && str.size() == 1)
+        return false;
+
+    for (size_t i = start; i < str.size(); ++i)
+    {
+        if (!isdigit(str[i]))
+            return false;
+    }
+    return true;
 }
 
 void ScalarConverter::toChar(const std::string str)
@@ -55,6 +75,12 @@ void ScalarConverter::convert(const std::string str)
         return;
     }
     // int
+    if (isInt(str))
+    {
+        std::cout << "isInt" << std::endl;
+        // toInt(str);
+        return;
+    }
     // float
     // double
     std::cout << "Invalid" << std::endl;
