@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/25 09:58:11 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/25 11:35:39 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,33 @@ bool ScalarConverter::isChar(const std::string str)
     return false;
 }
 
+void ScalarConverter::toChar(const std::string str)
+{
+    char c = str[0];
+    int i = static_cast<int>(c);
+    float f = static_cast<float>(c);
+    double d = static_cast<double>(c);
+
+    if (isprint(c))
+        std::cout << "char:   " << c << std::endl;
+    else
+        std::cout << "char:   unprintable" << c << std::endl;
+    std::cout << "int:    " << i << std::endl;
+    std::cout << "float:  " << f << std::endl;
+    std::cout << "double: " << d << std::endl;
+}
 
 void ScalarConverter::convert(const std::string str)
 {
-	// char
-    if(isChar(str))
+    // char
+    if (isChar(str))
+    {
         std::cout << "isChar" << std::endl;
-	// int
-	// float
-	// double
-    std::cout << "End" << std::endl;
+        toChar(str);
+        return;
+    }
+    // int
+    // float
+    // double
+    std::cout << "Invalid" << std::endl;
 }
