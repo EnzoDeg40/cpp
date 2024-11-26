@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:04:40 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 09:24:19 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:49:27 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ private:
 
     static void toChar(const std::string str);
     static void toInt(const std::string str);
+    static void toDouble(const std::string str);
+    static void toFloat(const std::string str);
+
+    static bool funcase(const std::string str);
 
 };
 

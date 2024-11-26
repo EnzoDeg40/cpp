@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 09:37:11 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:49:13 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,71 @@ bool ScalarConverter::isDouble(const std::string str)
     return true;
 }
 
+void ScalarConverter::toDouble(const std::string str)
+{
+    double d = atof(str.c_str());
+    float f = static_cast<float>(d);
+
+    if (isprint(d))
+    {
+        char c = static_cast<char>(d);
+        std::cout << "char:   " << c << std::endl;
+    }
+    else
+        std::cout << "char:   unprintable" << std::endl;
+
+    std::cout << "int:    " << static_cast<int>(d) << std::endl;
+    std::cout << "float:  " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
+}
+
+bool ScalarConverter::funcase(const std::string str)
+{
+    if (str == "-inf")
+    {
+        std::cout << "char: unprintable" << std::endl;
+        std::cout << "int: -2147483648" << std::endl;
+        std::cout << "float: -inff" << std::endl;
+        std::cout << "double: -inf" << std::endl;
+        return true;
+    }
+    if (str == "+inf" || str == "inf")
+    {
+        std::cout << "char: unprintable" << std::endl;
+        std::cout << "int: 2147483647" << std::endl;
+        std::cout << "float: inff" << std::endl;
+        std::cout << "double: inf" << std::endl;
+        return true;
+    }
+    if (str == "nan" || str == "+nan" || str == "-nan")
+    {
+        std::cout << "char: unprintable" << std::endl;
+        std::cout << "int: 0" << std::endl;
+        std::cout << "float: nanf" << std::endl;
+        std::cout << "double: nan" << std::endl;
+        return true;
+    }
+    return false;
+}
+
+void ScalarConverter::toFloat(const std::string str)
+{
+    float f = atof(str.c_str());
+    double d = static_cast<double>(f);
+
+    if (isprint(f))
+    {
+        char c = static_cast<char>(f);
+        std::cout << "char:   " << c << std::endl;
+    }
+    else
+        std::cout << "char:   unprintable" << std::endl;
+
+    std::cout << "int:    " << static_cast<int>(f) << std::endl;
+    std::cout << "float:  " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    std::cout << "double: " << d << std::endl;
+}
+
 void ScalarConverter::convert(const std::string str)
 {
     // char
@@ -160,15 +225,19 @@ void ScalarConverter::convert(const std::string str)
     if (isFloat(str))
     {
         std::cout << "isFloat" << std::endl;
-        // toFloat(str);
+        toFloat(str);
         return;
     }
     // double
     if (isDouble(str))
     {
         std::cout << "isDouble" << std::endl;
-        // toDouble(str);
+        toDouble(str);
         return;
     }
+    // fun
+    if (funcase(str))
+        return;
+
     std::cout << "Invalid" << std::endl;
 }
