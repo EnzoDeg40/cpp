@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 11:49:13 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:51:04 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,17 @@ ScalarConverter::ScalarConverter()
 
 ScalarConverter::~ScalarConverter()
 {
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &other)
+{
+    *this = other;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
+{
+    if (this != &other){}
+    return *this;
 }
 
 bool ScalarConverter::isChar(const std::string str)

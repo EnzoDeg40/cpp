@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:04:40 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 11:49:27 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 11:51:15 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ public:
 private:
     ScalarConverter();
     ~ScalarConverter();
-    // copy
-    // assignation
+    ScalarConverter(const ScalarConverter &other);
+    ScalarConverter &operator=(const ScalarConverter &other);
 
     static bool isChar(const std::string str);
     static bool isInt(const std::string str);
