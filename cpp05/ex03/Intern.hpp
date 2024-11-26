@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:13:08 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/22 13:11:45 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 14:12:50 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,23 +45,28 @@ Intern::~Intern()
 
 AForm* Intern::makeForm(std::string const name, std::string const target)
 {
-    // TODO : use a map
-    if (name == "shrubbery creation")
+    AForm* forms[3] = {
+        new ShrubberyCreationForm(target),
+        new RobotomyRequestForm(target),
+        new PresidentialPardonForm(target)
+    };
+
+    std::string names[3] = {
+        "shrubbery creation",
+        "robotomy request",
+        "presidential pardon"
+    };
+
+    for (int i = 0; i < 3; i++)
     {
-        return new ShrubberyCreationForm(target);
+        if (name == names[i])
+        {
+            std::cout << "Intern creates " << name << std::endl;
+            return forms[i];
+        }
     }
-    else if (name == "robotomy request")
-    {
-        return new RobotomyRequestForm(target);
-    }
-    else if (name == "presidential pardon")
-    {
-        return new PresidentialPardonForm(target);
-    }
-    else
-    {
-        throw Intern::FormNotFoundException();
-    }
+
+    throw Intern::FormNotFoundException();
 }
 
 const char *Intern::FormNotFoundException::what() const throw()

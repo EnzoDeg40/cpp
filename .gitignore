@@ -17,7 +17,7 @@ diamondtrap
 microshell/*.c
 !microshell/soluce.c
 !microshell/template.c
-
+intern
 bureaucrat
 form
 28b
