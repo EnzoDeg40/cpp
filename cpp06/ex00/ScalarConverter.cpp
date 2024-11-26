@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 11:51:04 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:05:38 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void ScalarConverter::toChar(const std::string str)
     double d = static_cast<double>(c);
 
     if (isprint(c))
-        std::cout << "char:   " << c << std::endl;
+        std::cout << "char: " << c << std::endl;
     else
-        std::cout << "char:   unprintable" << std::endl;
-    std::cout << "int:    " << i << std::endl;
-    std::cout << "float:  " << f << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
+    std::cout << "int: " << i << std::endl;
+    std::cout << "float: " << f << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
@@ -84,13 +84,13 @@ void ScalarConverter::toInt(const std::string str)
     if (isprint(i))
     {
         char c = static_cast<char>(i);
-        std::cout << "char:   " << c << std::endl;   
+        std::cout << "char: " << c << std::endl;   
     }
     else
-        std::cout << "char:   unprintable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
 
-    std::cout << "int:    " << i << std::endl;
-    std::cout << "float:  " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    std::cout << "int: " << i << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
     std::cout << "double: " << i << std::endl;
 }
 
@@ -159,13 +159,13 @@ void ScalarConverter::toDouble(const std::string str)
     if (isprint(d))
     {
         char c = static_cast<char>(d);
-        std::cout << "char:   " << c << std::endl;
+        std::cout << "char: " << c << std::endl;
     }
     else
-        std::cout << "char:   unprintable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
 
-    std::cout << "int:    " << static_cast<int>(d) << std::endl;
-    std::cout << "float:  " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    std::cout << "int: " << static_cast<int>(d) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
@@ -173,7 +173,7 @@ bool ScalarConverter::funcase(const std::string str)
 {
     if (str == "-inf")
     {
-        std::cout << "char: unprintable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: -2147483648" << std::endl;
         std::cout << "float: -inff" << std::endl;
         std::cout << "double: -inf" << std::endl;
@@ -181,7 +181,7 @@ bool ScalarConverter::funcase(const std::string str)
     }
     if (str == "+inf" || str == "inf")
     {
-        std::cout << "char: unprintable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: 2147483647" << std::endl;
         std::cout << "float: inff" << std::endl;
         std::cout << "double: inf" << std::endl;
@@ -189,7 +189,7 @@ bool ScalarConverter::funcase(const std::string str)
     }
     if (str == "nan" || str == "+nan" || str == "-nan")
     {
-        std::cout << "char: unprintable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
         std::cout << "int: 0" << std::endl;
         std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
@@ -206,13 +206,13 @@ void ScalarConverter::toFloat(const std::string str)
     if (isprint(f))
     {
         char c = static_cast<char>(f);
-        std::cout << "char:   " << c << std::endl;
+        std::cout << "char: " << c << std::endl;
     }
     else
-        std::cout << "char:   unprintable" << std::endl;
+        std::cout << "char: Non displayable" << std::endl;
 
-    std::cout << "int:    " << static_cast<int>(f) << std::endl;
-    std::cout << "float:  " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    std::cout << "int: " << static_cast<int>(f) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
 
