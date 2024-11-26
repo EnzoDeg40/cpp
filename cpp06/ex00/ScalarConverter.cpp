@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/25 14:04:42 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 09:03:51 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,36 @@ void ScalarConverter::toInt(const std::string str)
     std::cout << "double: " << i << std::endl;
 }
 
+bool ScalarConverter::isFloat(const std::string str)
+{
+    if (str.empty())
+        return false;
+
+    bool isNegative = (str[0] == '-');
+    bool isPositive = (str[0] == '+');
+    size_t start = (isNegative || isPositive) ? 1 : 0;
+
+    if (start == 1 && str.size() == 1)
+        return false;
+
+    bool hasDot = false;
+    // int size = str.size();
+    for (size_t i = start; i < str.size(); ++i)
+    {
+        if (str[i] == '.')
+        {
+            if (hasDot)
+                return false;
+            hasDot = true;
+        } 
+        else if (i == str.size() - 1 && str[i] == 'f')
+            return true;
+        else if (!isdigit(str[i]))
+            return false;
+    }
+    return true;
+}
+
 void ScalarConverter::convert(const std::string str)
 {
     // char
@@ -100,6 +130,12 @@ void ScalarConverter::convert(const std::string str)
         return;
     }
     // float
+    if (isFloat(str))
+    {
+        std::cout << "isFloat" << std::endl;
+        // toFloat(str);
+        return;
+    }
     // double
     std::cout << "Invalid" << std::endl;
 }
