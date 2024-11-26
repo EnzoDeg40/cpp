@@ -6,15 +6,17 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:04:40 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 12:06:40 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/26 12:43:51 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include <cstdlib>
+#pragma once
 
-// #include <string.h>
+#include <iostream>
+#include <string>
+#include <iomanip>
+#include <limits.h>
+#include <cstdlib>
 
 class ScalarConverter
 {
