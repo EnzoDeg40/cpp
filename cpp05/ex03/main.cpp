@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:24:27 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/27 09:05:11 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:37:27 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main()
     AForm* form1;
     AForm* form2;
     AForm* form3;
+    AForm* form4;
     
     form1 = someRandomIntern.makeForm("shrubbery creation", "Jardin");
     form2 = someRandomIntern.makeForm("robotomy request", "Conor");
@@ -31,7 +32,7 @@ int main()
     
     try
     {
-        someRandomIntern.makeForm("gigachad train", "Enzo");
+        form4 = someRandomIntern.makeForm("gigachad train", "Enzo");
     }
     catch(const std::exception& e)
     {

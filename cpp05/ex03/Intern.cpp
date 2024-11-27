@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:56:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/27 09:09:48 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:38:38 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,15 @@ AForm* Intern::makeForm(std::string const name, std::string const target)
 
     for (int i = 0; i < 3; i++)
     {
-        if (name == names[i])
+        if (name != names[i])
+            continue;
+        std::cout << "Intern creates " << name << std::endl;
+        for (int j = 0; j < 3; j++)
         {
-            std::cout << "Intern creates " << name << std::endl;
-            for (int j = 0; j < 3; j++)
-            {
-                if (j != i)
-                    delete forms[j];
-            }
-            return forms[i];
+            if (j != i)
+                delete forms[j];
         }
+        return forms[i];
     }
 
     for (int i = 0; i < 3; i++)
