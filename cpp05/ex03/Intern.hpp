@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 16:13:08 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 14:12:50 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:07:00 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ AForm* Intern::makeForm(std::string const name, std::string const target)
         new RobotomyRequestForm(target),
         new PresidentialPardonForm(target)
     };
-
+    
     std::string names[3] = {
         "shrubbery creation",
         "robotomy request",
@@ -62,10 +62,17 @@ AForm* Intern::makeForm(std::string const name, std::string const target)
         if (name == names[i])
         {
             std::cout << "Intern creates " << name << std::endl;
+            for (int j = 0; j < 3; j++)
+            {
+                if (j != i)
+                    delete forms[j];
+            }
             return forms[i];
         }
     }
 
+    for (int i = 0; i < 3; i++)
+        delete forms[i];
     throw Intern::FormNotFoundException();
 }
 

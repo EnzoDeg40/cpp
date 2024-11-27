@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 12:24:27 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 14:19:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/27 09:05:11 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,16 @@
 
 int main()
 {
-    Bureaucrat *bureaucrat = new Bureaucrat("Enzo", 1);
-    (void)bureaucrat;
-
-    // ShrubberyCreationForm shrubberyCreationForm("test1");
-    // RobotomyRequestForm robotomyRequestForm("test2");
-    // PresidentialPardonForm presidentialPardonForm("test3");
-        
-    // bureaucrat->signForm(shrubberyCreationForm);
-    // bureaucrat->signForm(robotomyRequestForm);
-    // bureaucrat->signForm(presidentialPardonForm);
-    
-    // shrubberyCreationForm.execute(*bureaucrat);
-    // robotomyRequestForm.execute(*bureaucrat);
-    // presidentialPardonForm.execute(*bureaucrat);
-
-    // bureaucrat->executeForm(shrubberyCreationForm);
-    // bureaucrat->executeForm(robotomyRequestForm);
-    // bureaucrat->executeForm(presidentialPardonForm);
-
     Intern someRandomIntern;
-    someRandomIntern.makeForm("shrubbery creation", "Jardin");
-    someRandomIntern.makeForm("robotomy request", "Conor");
-    someRandomIntern.makeForm("presidential pardon", "Macron");
+    
+    AForm* form1;
+    AForm* form2;
+    AForm* form3;
+    
+    form1 = someRandomIntern.makeForm("shrubbery creation", "Jardin");
+    form2 = someRandomIntern.makeForm("robotomy request", "Conor");
+    form3 = someRandomIntern.makeForm("presidential pardon", "Macron");
+    
     try
     {
         someRandomIntern.makeForm("gigachad train", "Enzo");
@@ -50,10 +37,10 @@ int main()
     {
         std::cerr << e.what() << '\n';
     }
-    
 
-    // Form* rrf;
-    // rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    
+    delete form1;
+    delete form2;
+    delete form3;
+
 	return 0;
 }
