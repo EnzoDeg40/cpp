@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 14:30:41 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/21 14:32:37 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/27 11:17:45 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 
 void PresidentialPardonForm::action() const
 {
-    // std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
+    std::cout << getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }
