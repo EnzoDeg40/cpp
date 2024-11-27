@@ -3,26 +3,26 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+         #
+#    By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 09:50:56 by edegraev          #+#    #+#              #
-#    Updated: 2024/11/22 10:11:34 by edegraev         ###   ########.fr        #
+#    Updated: 2024/11/27 15:08:11 by edegraev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = intern
 SRC_FORM = forms/PresidentialPardonForm.cpp forms/RobotomyRequestForm.cpp forms/ShrubberyCreationForm.cpp
 SRC = AForm.cpp Bureaucrat.cpp main.cpp Intern.cpp $(SRC_FORM)
-OBJ = $(SRC:.cpp=.o)
-FLAGS = -Wall -Wextra -Werror -std=c++98 -I./ -I./forms
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./ -I./forms
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	clang++ $(FLAGS) $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 %.o: %.cpp
-	clang++ $(FLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
