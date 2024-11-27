@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/26 12:42:22 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:03:11 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool ScalarConverter::isInt(const std::string str)
 
     try
     {
-        long long int result = atoll(str.c_str());
+        long int result = std::atol(str.c_str());
 		if (result < INT_MIN || result > INT_MAX)
 			return (false);
     }
