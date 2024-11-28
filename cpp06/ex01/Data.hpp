@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 15:21:50 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 15:22:10 by edegraev         ###   ########.fr       */
+/*   Created: 2024/11/28 15:20:25 by edegraev          #+#    #+#             */
+/*   Updated: 2024/11/28 15:24:41 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Serializer.hpp"
+#pragma once
 
-int main(void)
+#include <iostream>
+
+typedef struct Data
 {
-    return (0);
-}
+    std::string name;
+    bool hasBlahaj;
+    int age;
+} Data;

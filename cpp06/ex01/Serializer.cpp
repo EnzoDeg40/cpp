@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 15:21:50 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 15:22:10 by edegraev         ###   ########.fr       */
+/*   Created: 2024/11/28 15:14:47 by edegraev          #+#    #+#             */
+/*   Updated: 2024/11/28 15:43:10 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Serializer.hpp"
 
-int main(void)
+Serializer::Serializer()
 {
-    return (0);
+}
+
+Serializer::~Serializer()
+{
 }
