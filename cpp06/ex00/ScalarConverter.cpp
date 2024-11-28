@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/27 15:03:11 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 10:15:22 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,11 @@ bool ScalarConverter::isInt(const std::string str)
 
 void ScalarConverter::toChar(const std::string str)
 {
-    char c = str[0];
+    char c;
+    if (str.size() == 3 && str[0] == '\"' && str[2] == '\"')
+        c = str[1];
+    else
+        c = str[0];
     int i = static_cast<int>(c);
     float f = static_cast<float>(c);
     double d = static_cast<double>(c);
@@ -93,10 +97,12 @@ void ScalarConverter::toInt(const std::string str)
     int i = atoi(str.c_str());
     float f = static_cast<float>(i);
 
-    if (isprint(i))
+    if (!(i >= std::numeric_limits<char>::min() && i <= std::numeric_limits<char>::max()))
+        std::cout << "char: Impossible" << std::endl;
+    else if (isprint(i))
     {
         char c = static_cast<char>(i);
-        std::cout << "char: " << c << std::endl;   
+        std::cout << "char: '" << c << "'" << std::endl;   
     }
     else
         std::cout << "char: Non displayable" << std::endl;
