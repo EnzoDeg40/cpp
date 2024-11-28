@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 11:58:08 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:59:06 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,8 @@ bool ScalarConverter::isFloat(const std::string str)
     }
     if (!hasF)
         return false;
+    if (hasDot && str[str.size() - 2] == '.')
+        return false;
     return true; 
 }
 
@@ -161,15 +163,15 @@ bool ScalarConverter::isDouble(const std::string str)
     {
         if (str[i] == '.')
         {
-            if (hasDot)
+            if (hasDot || i == str.size() - 1)
                 return false;
             hasDot = true;
-        } 
-        else if (i == str.size() - 1 && str[i] == 'f')
-            return true;
+        }
         else if (!std::isdigit(str[i]))
             return false;
     }
+    if (hasDot && (str[str.size() - 1] == '.' || str[0] == '.'))
+        return false;
     return true;
 }
 
@@ -178,18 +180,33 @@ void ScalarConverter::toDouble(const std::string str)
     double d = std::atof(str.c_str());
     float f = static_cast<float>(d);
 
-    if (std::isprint(d))
+    // char
+    if (std::isnan(d) || std::isinf(d) || !(d >= std::numeric_limits<char>::min() && d <= std::numeric_limits<char>::max()))
+        std::cout << "char: Impossible" << std::endl;
+    else if (std::isprint(static_cast<int>(d)))
     {
         char c = static_cast<char>(d);
-        std::cout << "char: " << c << std::endl;
+        std::cout << "char: '" << c << "'" << std::endl;
     }
     else
         std::cout << "char: Non displayable" << std::endl;
 
-    std::cout << "int: " << static_cast<int>(d) << std::endl;
-    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+    // int
+    if (std::isnan(d) || std::isinf(d) || d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
+        std::cout << "int: Impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(d) << std::endl;
+
+    // float
+    if (std::isnan(d) || std::isinf(d) || d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
+        std::cout << "float: Impossible" << std::endl;
+    else
+        std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+
+    // double
     std::cout << "double: " << d << std::endl;
 }
+
 
 bool ScalarConverter::funcase(const std::string str)
 {
@@ -225,18 +242,28 @@ void ScalarConverter::toFloat(const std::string str)
     float f = std::atof(str.c_str());
     double d = static_cast<double>(f);
 
-    if (std::isprint(f))
+    // char
+    if (std::isnan(f) || std::isinf(f) || !(f >= std::numeric_limits<char>::min() && f <= std::numeric_limits<char>::max()))
+        std::cout << "char: Impossible" << std::endl;
+    else if (std::isprint(static_cast<int>(f)))
     {
         char c = static_cast<char>(f);
-        std::cout << "char: " << c << std::endl;
+        std::cout << "char: '" << c << "'" << std::endl;
     }
     else
         std::cout << "char: Non displayable" << std::endl;
 
-    std::cout << "int: " << static_cast<int>(f) << std::endl;
+    // int
+    if (std::isnan(f) || std::isinf(f) || f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
+        std::cout << "int: Impossible" << std::endl;
+    else
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
+
+    // float double
     std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
     std::cout << "double: " << d << std::endl;
 }
+
 
 void ScalarConverter::convert(const std::string str)
 {
