@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:14:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 20:23:59 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:40:17 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 class Serializer
 {
 public:
-    uintptr_t serialize(Data* ptr);
-    Data* deserialize(uintptr_t raw);
+    static uintptr_t serialize(Data* ptr);
+    static Data* deserialize(uintptr_t raw);
 
 private:
     Serializer();
