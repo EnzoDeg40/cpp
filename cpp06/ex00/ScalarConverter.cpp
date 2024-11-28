@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 10:28:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 10:40:01 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,13 +129,15 @@ bool ScalarConverter::isFloat(const std::string str)
     {
         if (str[i] == '.')
         {
-            if (hasDot)
+            if (hasDot || i == str.size() - 1)
                 return false;
             hasDot = true;
         }
-        else if (!isdigit(str[i]))
+        else if (!std::isdigit(str[i]))
             return false;
     }
+    if (!hasDot)
+        return false;
     return true; 
 }
 
