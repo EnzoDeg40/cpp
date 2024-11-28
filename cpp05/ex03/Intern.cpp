@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Intern.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:56:44 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/27 09:38:38 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:06:56 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Intern::Intern()
 {
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
 Intern::~Intern()
