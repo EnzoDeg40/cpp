@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:04:40 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 12:54:14 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:46:50 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ private:
     static void toFloat(const std::string str);
 
     static bool funcase(const std::string str);
+    static int detectPrecision(const std::string& str);
+
 };
 
 

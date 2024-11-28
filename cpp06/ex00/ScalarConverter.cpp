@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 12:59:06 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:53:28 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,10 +175,27 @@ bool ScalarConverter::isDouble(const std::string str)
     return true;
 }
 
+int ScalarConverter::detectPrecision(const std::string& str)
+{
+    size_t dotPos = str.find('.');
+    if (dotPos == std::string::npos)
+        return 0;
+
+    size_t digitsAfterDot = 0;
+    for (size_t i = dotPos + 1; i < str.size(); ++i) {
+        if (std::isdigit(str[i]))
+            ++digitsAfterDot;
+        else
+            break;
+    }
+    return digitsAfterDot;
+}
+
 void ScalarConverter::toDouble(const std::string str)
 {
-    double d = std::atof(str.c_str());
-    float f = static_cast<float>(d);
+    double d = std::strtod(str.c_str(), NULL);
+    float f = std::atof(str.c_str());
+    int p = detectPrecision(str);
 
     // char
     if (std::isnan(d) || std::isinf(d) || !(d >= std::numeric_limits<char>::min() && d <= std::numeric_limits<char>::max()))
@@ -201,37 +218,29 @@ void ScalarConverter::toDouble(const std::string str)
     if (std::isnan(d) || std::isinf(d) || d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
         std::cout << "float: Impossible" << std::endl;
     else
-        std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
+        std::cout << "float: " << std::setprecision(p) << f << "f" << std::endl;
 
     // double
-    std::cout << "double: " << d << std::endl;
+    std::cout << "double: " << std::setprecision(p) << d << std::endl;
 }
 
 
 bool ScalarConverter::funcase(const std::string str)
 {
-    if (str == "-inf")
+    if (str == "inf")
     {
-        std::cout << "char: Non displayable" << std::endl;
-        std::cout << "int: -2147483648" << std::endl;
-        std::cout << "float: -inff" << std::endl;
-        std::cout << "double: -inf" << std::endl;
+        std::cout << "char: Impossible" << std::endl;
+        std::cout << "int: Impossible" << std::endl;
+        std::cout << "float: " << "inf" << std::endl;
+        std::cout << "double: " << "inf" << std::endl;
         return true;
     }
-    if (str == "+inf" || str == "inf")
+    if (str == "nan")
     {
-        std::cout << "char: Non displayable" << std::endl;
-        std::cout << "int: 2147483647" << std::endl;
-        std::cout << "float: inff" << std::endl;
-        std::cout << "double: inf" << std::endl;
-        return true;
-    }
-    if (str == "nan" || str == "+nan" || str == "-nan")
-    {
-        std::cout << "char: Non displayable" << std::endl;
-        std::cout << "int: 0" << std::endl;
-        std::cout << "float: nanf" << std::endl;
-        std::cout << "double: nan" << std::endl;
+        std::cout << "char: Impossible" << std::endl;
+        std::cout << "int: Impossible" << std::endl;
+        std::cout << "float: " << "nanf" << std::endl;
+        std::cout << "double: " << "nan" << std::endl;
         return true;
     }
     return false;
@@ -260,8 +269,8 @@ void ScalarConverter::toFloat(const std::string str)
         std::cout << "int: " << static_cast<int>(f) << std::endl;
 
     // float double
-    std::cout << "float: " << std::fixed << std::setprecision(1) << f << "f" << std::endl;
-    std::cout << "double: " << d << std::endl;
+    std::cout << "float: " << std::setprecision(detectPrecision(str)) << f << "f" << std::endl;
+    std::cout << "double: " << std::setprecision(detectPrecision(str)) << d << std::endl;
 }
 
 
