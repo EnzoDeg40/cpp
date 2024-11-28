@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 10:15:22 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 10:28:43 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ScalarConverter &ScalarConverter::operator=(const ScalarConverter &other)
 
 bool ScalarConverter::isChar(const std::string str)
 {
-    if (str.size() == 1 && !isdigit(str[0]))
+    if (str.size() == 1 && !std::isdigit(str[0]))
         return true;
     if (str.size() == 3 && str[0] == '\"' && str[2] == '\"')
         return true;
@@ -54,7 +54,7 @@ bool ScalarConverter::isInt(const std::string str)
 
     for (size_t i = start; i < str.size(); ++i)
     {
-        if (!isdigit(str[i]))
+        if(!std::isdigit(str[i]))
             return false;
     }
 
@@ -83,7 +83,7 @@ void ScalarConverter::toChar(const std::string str)
     float f = static_cast<float>(c);
     double d = static_cast<double>(c);
 
-    if (isprint(c))
+    if (std::isprint(c))
         std::cout << "char: " << c << std::endl;
     else
         std::cout << "char: Non displayable" << std::endl;
@@ -94,12 +94,12 @@ void ScalarConverter::toChar(const std::string str)
 
 void ScalarConverter::toInt(const std::string str)
 {
-    int i = atoi(str.c_str());
+    int i = std::atoi(str.c_str());
     float f = static_cast<float>(i);
 
     if (!(i >= std::numeric_limits<char>::min() && i <= std::numeric_limits<char>::max()))
         std::cout << "char: Impossible" << std::endl;
-    else if (isprint(i))
+    else if (std::isprint(i))
     {
         char c = static_cast<char>(i);
         std::cout << "char: '" << c << "'" << std::endl;   
@@ -136,7 +136,7 @@ bool ScalarConverter::isFloat(const std::string str)
         else if (!isdigit(str[i]))
             return false;
     }
-    return true;
+    return true; 
 }
 
 bool ScalarConverter::isDouble(const std::string str)
@@ -152,7 +152,6 @@ bool ScalarConverter::isDouble(const std::string str)
         return false;
 
     bool hasDot = false;
-    // int size = str.size();
     for (size_t i = start; i < str.size(); ++i)
     {
         if (str[i] == '.')
@@ -163,7 +162,7 @@ bool ScalarConverter::isDouble(const std::string str)
         } 
         else if (i == str.size() - 1 && str[i] == 'f')
             return true;
-        else if (!isdigit(str[i]))
+        else if (!std::isdigit(str[i]))
             return false;
     }
     return true;
@@ -171,10 +170,10 @@ bool ScalarConverter::isDouble(const std::string str)
 
 void ScalarConverter::toDouble(const std::string str)
 {
-    double d = atof(str.c_str());
+    double d = std::atof(str.c_str());
     float f = static_cast<float>(d);
 
-    if (isprint(d))
+    if (std::isprint(d))
     {
         char c = static_cast<char>(d);
         std::cout << "char: " << c << std::endl;
@@ -218,10 +217,10 @@ bool ScalarConverter::funcase(const std::string str)
 
 void ScalarConverter::toFloat(const std::string str)
 {
-    float f = atof(str.c_str());
+    float f = std::atof(str.c_str());
     double d = static_cast<double>(f);
 
-    if (isprint(f))
+    if (std::isprint(f))
     {
         char c = static_cast<char>(f);
         std::cout << "char: " << c << std::endl;
