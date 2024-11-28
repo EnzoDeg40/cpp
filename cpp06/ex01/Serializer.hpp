@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:14:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 15:42:55 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/28 20:23:59 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ public:
 private:
     Serializer();
     ~Serializer();
-    // copy
-    // assignation
+    Serializer(Serializer const& src);
+    Serializer& operator=(Serializer const& rhs);
 };
 
