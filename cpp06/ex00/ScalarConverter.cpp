@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:03:47 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 14:53:28 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/29 14:11:24 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,10 +218,10 @@ void ScalarConverter::toDouble(const std::string str)
     if (std::isnan(d) || std::isinf(d) || d > std::numeric_limits<float>::max() || d < -std::numeric_limits<float>::max())
         std::cout << "float: Impossible" << std::endl;
     else
-        std::cout << "float: " << std::setprecision(p) << f << "f" << std::endl;
+        std::cout << "float: " << std::fixed << std::fixed << std::setprecision(p) << f << "f" << std::endl;
 
     // double
-    std::cout << "double: " << std::setprecision(p) << d << std::endl;
+    std::cout << "double: " << std::fixed <<  std::fixed << std::setprecision(p) << d << std::endl;
 }
 
 
@@ -269,8 +269,8 @@ void ScalarConverter::toFloat(const std::string str)
         std::cout << "int: " << static_cast<int>(f) << std::endl;
 
     // float double
-    std::cout << "float: " << std::setprecision(detectPrecision(str)) << f << "f" << std::endl;
-    std::cout << "double: " << std::setprecision(detectPrecision(str)) << d << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(detectPrecision(str)) << f << "f" << std::endl;
+    std::cout << "double: " << std::fixed << std::setprecision(detectPrecision(str)) << d << std::endl;
 }
 
 
@@ -279,34 +279,36 @@ void ScalarConverter::convert(const std::string str)
     // char
     if (isChar(str))
     {
-        std::cout << "isChar" << std::endl;
+        // std::cout << "isChar" << std::endl;
         toChar(str);
         return;
     }
     // int
     if (isInt(str))
     {
-        std::cout << "isInt" << std::endl;
+        // std::cout << "isInt" << std::endl;
         toInt(str);
         return;
     }
     // float
     if (isFloat(str))
     {
-        std::cout << "isFloat" << std::endl;
+        // std::cout << "isFloat" << std::endl;
         toFloat(str);
         return;
     }
     // double
     if (isDouble(str))
     {
-        std::cout << "isDouble" << std::endl;
+        // std::cout << "isDouble" << std::endl;
         toDouble(str);
         return;
     }
     // fun
     if (funcase(str))
+    {
+        // std::cout << "funcase" << std::endl;
         return;
-
+    }
     std::cout << "Invalid" << std::endl;
 }
