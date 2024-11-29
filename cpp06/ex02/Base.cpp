@@ -3,13 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:23:14 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/28 22:07:33 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:44:27 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
-// Base::~Base() {}
+Base::~Base() {}
