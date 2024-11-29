@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 21:55:22 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/29 10:09:08 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:55:02 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,36 @@ void identify(Base *p)
 		std::cout << "Object type C detected" << std::endl;
 }
 
+void identify(Base& p)
+{
+    try
+    {
+        A &a = dynamic_cast<A &>(p);
+        (void)a;
+        std::cout << "Object type A detected " << std::endl;
+    }
+    catch(...)
+    {
+    }
+    try
+    {
+        B &b = dynamic_cast<B &>(p);
+        (void)b;
+        std::cout << "Object type B detected" << std::endl;
+    }
+    catch(...)
+    {
+    }
+    try
+    {
+        C &c = dynamic_cast<C &>(p);
+        (void)c;
+        std::cout << "Object type C detected" << std::endl;
+    }
+    catch(...)
+    {
+    }
+}
 
 int main(void)
 {
@@ -52,6 +82,7 @@ int main(void)
     srand(time(NULL));
     idk = generate();
     identify(idk);
+    identify(*idk);
     delete idk;
 
     return (0);
