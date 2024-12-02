@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:27:54 by edegraev          #+#    #+#             */
-/*   Updated: 2024/11/30 09:58:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 08:54:40 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,15 @@ template <typename T>
 class Array
 {
 private:
-    /* data */
+    T *_array;
+    unsigned int _size;
 public:
-    Array(/* args */);
+    Array();
     ~Array();
+    Array(Array const &src);
+    Array &operator=(Array const &rhs);
+
+    Array(unsigned int n);
 };
 
 #include "Array.tpp"
