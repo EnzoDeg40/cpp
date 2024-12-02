@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
+/*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:13:59 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 15:14:05 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:35:03 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Span::Span()
 {
 }
 
-Span::Span(unsigned int n) : _n(n), _v(std::vector<int>(n))
+Span::Span(unsigned int n) : _n(n)
 {
 }
 
@@ -29,8 +29,8 @@ Span &Span::operator=(Span const &rhs)
 {
     if (this != &rhs)
     {
-        this->_n = rhs._n;
-        this->_v = rhs._v;
+        _n = rhs._n;
+        _v = rhs._v;
     }
     return (*this);
 }
@@ -41,8 +41,8 @@ Span::~Span()
 
 void Span::addNumber(int n)
 {
-    if (this->_v.size() < this->_n)
-        this->_v.push_back(n);
+    if (_v.size() < _n)
+        _v.push_back(n);
     else
         throw std::exception();
 }
