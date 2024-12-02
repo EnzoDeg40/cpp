@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:13:59 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 20:35:03 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 20:52:44 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,29 @@ void Span::addNumber(int n)
         _v.push_back(n);
     else
         throw std::exception();
+}
+
+
+int Span::shortestSpan()
+{
+    if (_v.size() < 2)
+        throw std::exception();
+    std::vector<int> tmp = _v;
+    std::sort(tmp.begin(), tmp.end());
+    int min = tmp[1] - tmp[0];
+    for (size_t i = 1; i < tmp.size() - 1; i++)
+    {
+        if (tmp[i + 1] - tmp[i] < min)
+            min = tmp[i + 1] - tmp[i];
+    }
+    return (min);
+}
+
+int Span::longestSpan()
+{
+    if (_v.size() < 2)
+        throw std::exception();
+    std::vector<int> tmp = _v;
+    std::sort(tmp.begin(), tmp.end());
+    return (tmp[tmp.size() - 1] - tmp[0]);
 }
