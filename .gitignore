@@ -1,5 +1,6 @@
 *.o
 *.d
+a.out
 fixed
 zombie
 brain
@@ -24,3 +25,4 @@ base
 whatever
 iter
 array
+easyfind
