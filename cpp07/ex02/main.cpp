@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:57:34 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 09:10:59 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 09:12:15 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,13 @@ int main(void)
     {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
-    
+
+    c = a;
+    std::cout << "Test copy array c: ";
+    for (unsigned int i = 0; i < 5; i++)
+    {
+        std::cout << c[i] << " ";
+    }
 
     return (0);
 }
