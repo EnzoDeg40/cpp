@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:33:10 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 08:57:58 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 09:03:52 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,14 @@ Array<T> &Array<T>::operator=(Array const &rhs)
         }
     }
     return (*this);
+}
+
+template <typename T>
+T &Array<T>::operator[](unsigned int i)
+{
+    if (i >= this->_size)
+    {
+        throw std::out_of_range("Index out of range");
+    }
+    return (this->_array[i]);
 }
