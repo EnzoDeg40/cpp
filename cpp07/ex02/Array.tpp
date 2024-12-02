@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:33:10 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 09:03:52 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:54:56 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Array.hpp"
 
 template <typename T>
-Array<T>::Array() : _array(new T[0]), _size(0)
+Array<T>::Array() : _array(NULL), _size(0)
 {
 }
 
