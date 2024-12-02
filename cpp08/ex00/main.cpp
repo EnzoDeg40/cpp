@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 12:57:37 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 13:21:10 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:05:52 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int main()
         }
         catch (const std::exception &e)
         {
-            std::cout << e.what() << '\n';
+            std::cout << "Element not found" << '\n';
         }
     }
 }
