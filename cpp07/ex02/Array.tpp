@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:33:10 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 10:54:56 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/02 11:13:36 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ Array<T> &Array<T>::operator=(Array const &rhs)
             this->_array[i] = rhs._array[i];
         }
     }
-    return (*this);
+    return *this;
 }
 
 template <typename T>
@@ -58,5 +58,5 @@ T &Array<T>::operator[](unsigned int i)
     {
         throw std::out_of_range("Index out of range");
     }
-    return (this->_array[i]);
+    return this->_array[i];
 }
