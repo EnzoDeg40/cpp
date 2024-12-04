@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 15:13:59 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/02 20:52:44 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:42:25 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ void Span::addNumber(int n)
         _v.push_back(n);
     else
         throw std::exception();
+}
+
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+    if (_v.size() + std::distance(begin, end) > _n)
+        throw std::exception();
+    _v.insert(_v.end(), begin, end);
 }
 
 
