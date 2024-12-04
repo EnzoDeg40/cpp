@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 11:00:50 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:24:28 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,26 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
 
 void BitcoinExchange::parseData(std::string const &line)
 {
-    // std::cout << line << std::endl;
     size_t pos = line.find(',');
-    if (pos != std::string::npos)
+    if (pos == std::string::npos)
     {
-        std::string key = line.substr(0, pos);
-        // float value = stof(line.substr(pos + 1));
-        std::string value = line.substr(pos + 1);
-        // _data[key] = value;
-        _data.insert(std::pair<std::string, std::string>(key, value));
-        // std::cout << key << " => " << value << std::endl;
+        return;
     }
+    std::string key = line.substr(0, pos);
+    float value;
+    std::stringstream convert;
+    convert << line.substr(pos + 1);
+    convert >> value;
+    // if (!(convert >> value))
+    // {
+    //     throw std::runtime_error("Error: Conversion failed for line: " + line);
+    // }
+    _data.insert(std::pair<std::string, float>(key, value));
 }
 
 void BitcoinExchange::printData()
 {
-    for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it)
+    for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); ++it)
     {
         std::cout << it->first << " => " << it->second << std::endl;
     }
@@ -59,7 +63,7 @@ void BitcoinExchange::printData()
 
 void BitcoinExchange::loadData(std::string const &filename)
 {
-    std::ifstream file(filename);
+    std::ifstream file(filename.c_str());
     if (!file.is_open())
         throw std::runtime_error("Error: Could not open file " + filename);
         
@@ -68,7 +72,6 @@ void BitcoinExchange::loadData(std::string const &filename)
     {
         parseData(line);
     }
-    printData();
 
     file.close();
 }

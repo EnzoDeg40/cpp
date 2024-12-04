@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:11:37 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 10:59:42 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 18:15:26 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int main(int ac, char **av)
     }
 
     exchange.loadData(av[1]);
+    exchange.printData();
     
     return (0);
 }
