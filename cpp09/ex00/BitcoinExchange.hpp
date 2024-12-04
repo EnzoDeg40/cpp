@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:18 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 10:02:03 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:59:47 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <map>
+#include <fstream>
+#include <string>
 
 class BitcoinExchange
 {
@@ -26,6 +28,7 @@ public:
     BitcoinExchange(BitcoinExchange const &src);
     BitcoinExchange &operator=(BitcoinExchange const &rhs);
 
+    void loadData(std::string const &filename);
     void parseData(std::string const &line);
     void printData();
 };

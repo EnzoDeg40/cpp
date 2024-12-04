@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 10:01:58 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 11:00:50 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,20 @@ void BitcoinExchange::printData()
     {
         std::cout << it->first << " => " << it->second << std::endl;
     }
+}
+
+void BitcoinExchange::loadData(std::string const &filename)
+{
+    std::ifstream file(filename);
+    if (!file.is_open())
+        throw std::runtime_error("Error: Could not open file " + filename);
+        
+    std::string line;
+    while (std::getline(file, line))
+    {
+        parseData(line);
+    }
+    printData();
+
+    file.close();
 }
