@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 14:54:37 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 10:43:09 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:43:44 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ int main()
         sp.addNumber(17);
         sp.addNumber(9);
         sp.addNumber(11);
-
-        // create vector of 10000 elements
 
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
