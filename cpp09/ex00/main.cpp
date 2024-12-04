@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:11:37 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 09:11:46 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:01:50 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int main(int ac, char **av)
     std::string line;
     while (std::getline(file, line))
     {
-        // std::cout << line << std::endl;
         exchange.parseData(line);
     }
+    exchange.printData();
 
     file.close();
 

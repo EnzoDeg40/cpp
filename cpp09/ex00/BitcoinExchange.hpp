@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:18 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 09:11:40 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:02:03 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ public:
     BitcoinExchange &operator=(BitcoinExchange const &rhs);
 
     void parseData(std::string const &line);
+    void printData();
 };
 

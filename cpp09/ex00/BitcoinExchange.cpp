@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 09:12:25 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/04 10:01:58 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ void BitcoinExchange::parseData(std::string const &line)
         std::string value = line.substr(pos + 1);
         // _data[key] = value;
         _data.insert(std::pair<std::string, std::string>(key, value));
-        std::cout << key << " => " << value << std::endl;
+        // std::cout << key << " => " << value << std::endl;
+    }
+}
+
+void BitcoinExchange::printData()
+{
+    for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it)
+    {
+        std::cout << it->first << " => " << it->second << std::endl;
     }
 }
