@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 09:52:41 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:27:05 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,19 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
     return (*this);
 }
 
-void BitcoinExchange::parseData(std::string const &line)
+void BitcoinExchange::checkValue(std::string data, float nbBtc)
 {
-    size_t pos = line.find(',');
+    std::cout << "checkValue: " << data << " " << nbBtc << std::endl;
+}
+
+void BitcoinExchange::parseData(std::string const &line, bool isUser)
+{
+    size_t pos;
+
+    if (isUser)
+        pos = line.find('|');
+    else
+        pos = line.find(',');
     if (pos == std::string::npos)
     {
         return;
@@ -50,7 +60,10 @@ void BitcoinExchange::parseData(std::string const &line)
     // {
     //     throw std::runtime_error("Error: Conversion failed for line: " + line);
     // }
-    _btcHistory.insert(std::pair<std::string, float>(key, value));
+    if (isUser)
+        checkValue(key, value);
+    else
+        _btcHistory.insert(std::pair<std::string, float>(key, value));
 }
 
 void BitcoinExchange::printData()
@@ -61,21 +74,25 @@ void BitcoinExchange::printData()
     }
 }
 
-
-
 void BitcoinExchange::loadData(std::string const &filename, bool isUser)
 {
     std::ifstream file(filename.c_str());
     if (!file.is_open())
         throw std::runtime_error("Error: Could not open file " + filename);
-        
+
     std::string line;
     while (std::getline(file, line))
     {
-        if (isUser);
-            // parseUserData(line);
+        if (line.empty())
+            continue;
+
+        if (isUser)
+            parseData(line, true);
+        // {
+        // std::cout << "User data:" << line << std::endl;
+        // }
         else
-            parseData(line);
+            parseData(line, false);
     }
 
     file.close();

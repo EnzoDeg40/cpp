@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:18 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 09:48:21 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:23:56 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ public:
     BitcoinExchange &operator=(BitcoinExchange const &rhs);
 
     void loadData(std::string const &filename, bool isUser);
-    void parseData(std::string const &line);
+    void parseData(std::string const &line, bool isUser);
+    void checkValue(std::string data, float nbBtc);
     void printData();
 };
 
