@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 10:53:38 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:12:57 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,58 +72,25 @@ bool BitcoinExchange::isDatePrevious(std::string dateBtc, std::string dateUser)
     return dayBtc <= dayUser;
 }
 
-// void BitcoinExchange::checkValue(std::string date, float nbBtc)
-// {
-//     std::cout << "checkValue: " << date << " " << nbBtc << std::endl;
-
-    
-
-//     for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
-//     {
-//         // std::cout << it->first << " => " << it->second << std::endl;
-
-//         // cherche la date la plus proche
-//         if (isDatePrevious(it->first, date))
-//         {
-//             std::cout << "isDatePrevious: " << it->first << " " << it->second << std::endl;
-//             return;
-//         }
-//     }
-// }
-
 void BitcoinExchange::checkValue(std::string date, float nbBtc)
 {
-    std::cout << "checkValue: " << date << " " << nbBtc << std::endl;
-
-    // Initialisation d'un pointeur pour stocker la date la plus proche trouvée
     std::map<std::string, float>::iterator closestDate = _btcHistory.end();
 
     for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
     {
-        // Si la date actuelle est avant ou égale à la date donnée
         if (isDatePrevious(it->first, date))
-        {
-            closestDate = it; // On enregistre cette date comme la plus proche
-        }
+            closestDate = it;
         else
-        {
-            // Si la date actuelle est après la date donnée, on peut arrêter
             break;
-        }
     }
 
-    // Vérifie si une date a été trouvée
-    if (closestDate != _btcHistory.end())
+    if (closestDate == _btcHistory.end())
     {
-        // Affiche la valeur associée à la date trouvée
-        std::cout << "La valeur la plus proche (" << closestDate->first << ") : "
-                  << closestDate->second * nbBtc << " (BTC * taux)" << std::endl;
+        std::cerr << "Error: date not found" << std::endl;
+        return;
     }
-    else
-    {
-        // Aucune date correspondante
-        std::cout << "Aucune date antérieure ou égale à " << date << " trouvée dans l'historique." << std::endl;
-    }
+
+    std::cout << closestDate->first << " => " << nbBtc << " = " << closestDate->second * nbBtc << std::endl;
 }
 
 
