@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 11:12:57 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/05 11:28:30 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ void BitcoinExchange::checkValue(std::string date, float nbBtc)
     std::cout << closestDate->first << " => " << nbBtc << " = " << closestDate->second * nbBtc << std::endl;
 }
 
-
 bool BitcoinExchange::isDate(std::string date)
 {
     if (date.size() != 10)
@@ -107,7 +106,36 @@ bool BitcoinExchange::isDate(std::string date)
         if (date[i] < '0' || date[i] > '9')
             return false;
     }
+
+    int year = BitcoinExchange::stoi(date.substr(0, 4));
+    int month = BitcoinExchange::stoi(date.substr(5, 2));
+    int day = BitcoinExchange::stoi(date.substr(8, 2));
+
+    if (year < 1900 || year > 2100)
+        return false;
+    if (month < 1 || month > 12)
+        return false;
+    if (day < 1 || day > 31)
+        return false;
     return true;
+}
+
+int BitcoinExchange::stoi(std::string const &str)
+{
+    int result;
+    std::stringstream convert;
+    convert << str;
+    convert >> result;
+    return result;
+}
+
+float BitcoinExchange::stof(std::string const &str)
+{
+    float result;
+    std::stringstream convert;
+    convert << str;
+    convert >> result;
+    return result;
 }
 
 void BitcoinExchange::parseData(std::string const &line, bool isUser)
@@ -120,38 +148,23 @@ void BitcoinExchange::parseData(std::string const &line, bool isUser)
         pos = line.find(',');
     if (pos == std::string::npos)
     {
+        std::cerr << "Error: bad input => " << line << std::endl;
         return;
     }
     std::string key = line.substr(0, pos);
-    float value;
-    std::stringstream convert;
-    convert << line.substr(pos + 1);
-    convert >> value;
-    // if (!(convert >> value))
-    // {
-    //     throw std::runtime_error("Error: Conversion failed for line: " + line);
-    // }
+    float value = stof(line.substr(pos + 1));
     if (isUser)
     {
         key = key.substr(0, key.size() - 1);
         if (!isDate(key))
         {
-            // throw std::runtime_error("Error: Invalid date format for line: " + line);
-            std::cerr << "Error: Invalid date format for line: " << line << std::endl;
+            std::cerr << "Error: bad input => " << key << std::endl;
             return;
         }
         checkValue(key, value);
     }
     else
         _btcHistory.insert(std::pair<std::string, float>(key, value));
-}
-
-void BitcoinExchange::printData()
-{
-    for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
-    {
-        std::cout << it->first << " => " << it->second << std::endl;
-    }
 }
 
 void BitcoinExchange::loadData(std::string const &filename, bool isUser)
