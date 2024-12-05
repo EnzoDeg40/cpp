@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 10:27:05 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/05 10:53:38 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,118 @@ BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &rhs)
 {
     if (this != &rhs)
     {
-        // copy attributes here
+        _btcHistory = rhs._btcHistory;
     }
     return (*this);
 }
 
-void BitcoinExchange::checkValue(std::string data, float nbBtc)
+bool BitcoinExchange::isDatePrevious(std::string dateBtc, std::string dateUser)
 {
-    std::cout << "checkValue: " << data << " " << nbBtc << std::endl;
+    if (!isDate(dateBtc) || !isDate(dateUser))
+    {
+        std::cerr << "Error: Invalid date format" << std::endl;
+        return false;
+    }
+
+    // Comparer les années
+    std::string yearBtc = dateBtc.substr(0, 4);
+    std::string yearUser = dateUser.substr(0, 4);
+    if (yearBtc < yearUser)
+    {
+        return true;
+    }
+    else if (yearBtc > yearUser)
+    {
+        return false;
+    }
+
+    // Comparer les mois
+    std::string monthBtc = dateBtc.substr(5, 2);
+    std::string monthUser = dateUser.substr(5, 2);
+    if (monthBtc < monthUser)
+    {
+        return true;
+    }
+    else if (monthBtc > monthUser)
+    {
+        return false;
+    }
+
+    // Comparer les jours
+    std::string dayBtc = dateBtc.substr(8, 2);
+    std::string dayUser = dateUser.substr(8, 2);
+    return dayBtc <= dayUser;
+}
+
+// void BitcoinExchange::checkValue(std::string date, float nbBtc)
+// {
+//     std::cout << "checkValue: " << date << " " << nbBtc << std::endl;
+
+    
+
+//     for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
+//     {
+//         // std::cout << it->first << " => " << it->second << std::endl;
+
+//         // cherche la date la plus proche
+//         if (isDatePrevious(it->first, date))
+//         {
+//             std::cout << "isDatePrevious: " << it->first << " " << it->second << std::endl;
+//             return;
+//         }
+//     }
+// }
+
+void BitcoinExchange::checkValue(std::string date, float nbBtc)
+{
+    std::cout << "checkValue: " << date << " " << nbBtc << std::endl;
+
+    // Initialisation d'un pointeur pour stocker la date la plus proche trouvée
+    std::map<std::string, float>::iterator closestDate = _btcHistory.end();
+
+    for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
+    {
+        // Si la date actuelle est avant ou égale à la date donnée
+        if (isDatePrevious(it->first, date))
+        {
+            closestDate = it; // On enregistre cette date comme la plus proche
+        }
+        else
+        {
+            // Si la date actuelle est après la date donnée, on peut arrêter
+            break;
+        }
+    }
+
+    // Vérifie si une date a été trouvée
+    if (closestDate != _btcHistory.end())
+    {
+        // Affiche la valeur associée à la date trouvée
+        std::cout << "La valeur la plus proche (" << closestDate->first << ") : "
+                  << closestDate->second * nbBtc << " (BTC * taux)" << std::endl;
+    }
+    else
+    {
+        // Aucune date correspondante
+        std::cout << "Aucune date antérieure ou égale à " << date << " trouvée dans l'historique." << std::endl;
+    }
+}
+
+
+bool BitcoinExchange::isDate(std::string date)
+{
+    if (date.size() != 10)
+        return false;
+    if (date[4] != '-' || date[7] != '-')
+        return false;
+    for (int i = 0; i < 10; i++)
+    {
+        if (i == 4 || i == 7)
+            continue;
+        if (date[i] < '0' || date[i] > '9')
+            return false;
+    }
+    return true;
 }
 
 void BitcoinExchange::parseData(std::string const &line, bool isUser)
@@ -61,7 +165,16 @@ void BitcoinExchange::parseData(std::string const &line, bool isUser)
     //     throw std::runtime_error("Error: Conversion failed for line: " + line);
     // }
     if (isUser)
+    {
+        key = key.substr(0, key.size() - 1);
+        if (!isDate(key))
+        {
+            // throw std::runtime_error("Error: Invalid date format for line: " + line);
+            std::cerr << "Error: Invalid date format for line: " << line << std::endl;
+            return;
+        }
         checkValue(key, value);
+    }
     else
         _btcHistory.insert(std::pair<std::string, float>(key, value));
 }
