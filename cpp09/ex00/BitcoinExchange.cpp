@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/04 18:24:28 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/05 09:52:41 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,20 @@ void BitcoinExchange::parseData(std::string const &line)
     // {
     //     throw std::runtime_error("Error: Conversion failed for line: " + line);
     // }
-    _data.insert(std::pair<std::string, float>(key, value));
+    _btcHistory.insert(std::pair<std::string, float>(key, value));
 }
 
 void BitcoinExchange::printData()
 {
-    for (std::map<std::string, float>::iterator it = _data.begin(); it != _data.end(); ++it)
+    for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
     {
         std::cout << it->first << " => " << it->second << std::endl;
     }
 }
 
-void BitcoinExchange::loadData(std::string const &filename)
+
+
+void BitcoinExchange::loadData(std::string const &filename, bool isUser)
 {
     std::ifstream file(filename.c_str());
     if (!file.is_open())
@@ -70,7 +72,10 @@ void BitcoinExchange::loadData(std::string const &filename)
     std::string line;
     while (std::getline(file, line))
     {
-        parseData(line);
+        if (isUser);
+            // parseUserData(line);
+        else
+            parseData(line);
     }
 
     file.close();
