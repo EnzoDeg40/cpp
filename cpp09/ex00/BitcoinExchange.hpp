@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:18 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 11:27:16 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 09:54:27 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class BitcoinExchange
 {
 private:
-    std::map<std::string, float> _btcHistory;
+    std::map<std::string, float> _btcHistory; // double ?
     
     void parseData(std::string const &line, bool isUser);
     void checkValue(std::string data, float nbBtc);

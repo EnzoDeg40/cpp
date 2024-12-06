@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/05 11:28:30 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 09:56:08 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ void BitcoinExchange::loadData(std::string const &filename, bool isUser)
         throw std::runtime_error("Error: Could not open file " + filename);
 
     std::string line;
-    while (std::getline(file, line))
+    while (std::getline(file, line)) // getline can split the line
     {
         if (line.empty())
             continue;
