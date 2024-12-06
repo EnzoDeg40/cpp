@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:29:09 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 15:32:41 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:41:27 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@
 class RPN
 {
 private:
+    int applyOperation(const std::string &op, int a, int b);
+    bool isNumber(const std::string &token);
+    void processToken(const std::string &token, std::stack<int> &tokens);
 
 public:
     RPN();
@@ -28,8 +31,5 @@ public:
     RPN(RPN const &src);
     RPN &operator=(RPN const &rhs);
 
-    
-    void parsing(const std::string& av);
-    void processToken(const std::string& token, std::stack<int>& tokens);
-
+    void parsing(const std::string &av);
 };
