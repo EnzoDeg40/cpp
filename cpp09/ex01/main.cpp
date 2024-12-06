@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 12:51:35 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 13:32:49 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:11:58 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,17 @@ int main(int ac, char **av)
 
     RPN rpn;
 
-    rpn.parsing(av[1]);
+    try
+    {
+        // rpn.parsing(av[1]);
+        rpn.parsing(av[1]);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+    
+
     
     return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:29:09 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 13:35:55 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 15:16:15 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <sstream>
 #include <stack>
 #include <string>
+#include <iostream>
+#include <cstdlib>
 
 class RPN
 {
@@ -26,5 +28,7 @@ public:
     RPN(RPN const &src);
     RPN &operator=(RPN const &rhs);
 
-    void parsing(std::string av);
+    // void parsing(std::string av);
+    void parsing(const std::string& av);
+
 };
