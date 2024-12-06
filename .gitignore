@@ -31,3 +31,5 @@ mutantstack
 btc
 .vscode
 RPN
+lib
+!lib/
