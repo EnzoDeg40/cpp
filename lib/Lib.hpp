@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:54:21 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 17:09:30 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 20:49:15 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,67 @@
 class Lib
 {
 private:
-    /* data */
+    Lib();
+    Lib(Lib const &src);
+    Lib &operator=(Lib const &rhs);
 public:
-    Lib(/* args */);
     ~Lib();
 
+    static int stoi(std::string str);
     static float stof(std::string str);
     static double stod(std::string str);
 };
 
-Lib::Lib(/* args */)
+Lib::Lib()
 {
 }
 
 Lib::~Lib()
 {
+}
+
+Lib::Lib(Lib const &src)
+{
+    *this = src;
+}
+
+Lib &Lib::operator=(Lib const &rhs)
+{
+    if (this != &rhs)
+    {
+    }
+    return *this;
+}
+
+
+int Lib::stoi(std::string str)
+{
+    int result = 0;
+    bool is_negative = false;
+
+    size_t i = 0;
+
+    if (str[i] == '+' || str[i] == '-')
+    {
+        is_negative = (str[i] == '-');
+        ++i;
+    }
+
+    for (; i < str.length(); ++i)
+    {
+        char c = str[i];
+
+        if (std::isdigit(c))
+        {
+            result = result * 10 + (c - '0');
+        }
+        else
+        {
+            throw std::invalid_argument("Invalid input: non-numeric character");
+        }
+    }
+
+    return is_negative ? -result : result;
 }
 
 float Lib::stof(std::string str)
