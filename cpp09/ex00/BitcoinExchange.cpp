@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 09:56:08 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/06 12:40:54 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ bool BitcoinExchange::isDatePrevious(std::string dateBtc, std::string dateUser)
     return dayBtc <= dayUser;
 }
 
-void BitcoinExchange::checkValue(std::string date, float nbBtc)
+void BitcoinExchange::checkValue(std::string date, double nbBtc)
 {
-    std::map<std::string, float>::iterator closestDate = _btcHistory.end();
+    std::map<std::string, double>::iterator closestDate = _btcHistory.end();
 
-    for (std::map<std::string, float>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
+    for (std::map<std::string, double>::iterator it = _btcHistory.begin(); it != _btcHistory.end(); ++it)
     {
         if (isDatePrevious(it->first, date))
             closestDate = it;
@@ -91,6 +91,7 @@ void BitcoinExchange::checkValue(std::string date, float nbBtc)
     }
 
     std::cout << closestDate->first << " => " << nbBtc << " = " << closestDate->second * nbBtc << std::endl;
+    
 }
 
 bool BitcoinExchange::isDate(std::string date)
@@ -129,9 +130,9 @@ int BitcoinExchange::stoi(std::string const &str)
     return result;
 }
 
-float BitcoinExchange::stof(std::string const &str)
+double BitcoinExchange::stod(std::string const &str)
 {
-    float result;
+    double result;
     std::stringstream convert;
     convert << str;
     convert >> result;
@@ -142,6 +143,8 @@ void BitcoinExchange::parseData(std::string const &line, bool isUser)
 {
     size_t pos;
 
+    if (line == "date | value" || line == "date,exchange_rate")
+        return;
     if (isUser)
         pos = line.find('|');
     else
@@ -152,7 +155,7 @@ void BitcoinExchange::parseData(std::string const &line, bool isUser)
         return;
     }
     std::string key = line.substr(0, pos);
-    float value = stof(line.substr(pos + 1));
+    double value = stod(line.substr(pos + 1));
     if (isUser)
     {
         key = key.substr(0, key.size() - 1);
@@ -164,7 +167,7 @@ void BitcoinExchange::parseData(std::string const &line, bool isUser)
         checkValue(key, value);
     }
     else
-        _btcHistory.insert(std::pair<std::string, float>(key, value));
+        _btcHistory.insert(std::pair<std::string, double>(key, value));
 }
 
 void BitcoinExchange::loadData(std::string const &filename, bool isUser)
