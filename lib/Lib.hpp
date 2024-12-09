@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:54:21 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 20:51:40 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:58:25 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ public:
     static int stoi(std::string str);
     static float stof(std::string str);
     static double stod(std::string str);
+    static std::string to_string(int n);
 };

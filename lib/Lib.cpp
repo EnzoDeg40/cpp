@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 16:54:21 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 20:50:23 by edegraev         ###   ########.fr       */
+/*   Updated: 2024/12/09 13:58:39 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,4 +154,24 @@ double Lib::stod(std::string str)
     }
 
     return is_negative ? -result : result;
+}
+
+std::string Lib::to_string(int n)
+{
+    std::string result;
+    bool is_negative = n < 0;
+
+    if (is_negative)
+        n = -n;
+
+    while (n > 0)
+    {
+        result = static_cast<char>(n % 10 + '0') + result;
+        n /= 10;
+    }
+
+    if (is_negative)
+        result = '-' + result;
+
+    return result;
 }
