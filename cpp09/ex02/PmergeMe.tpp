@@ -6,12 +6,19 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 12:50:52 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 20:58:08 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+/**
+ * @brief Construct a new PmergeMe::PmergeMe object
+ * 
+ * @tparam T The type of the list elements.
+ * @param list The list to print.
+ * @param message The message to print before the list.
+ */
 template <typename T>
 void PmergeMe::print(T &list, std::string message)
 {
@@ -50,9 +57,8 @@ void PmergeMe::merge(T &list, int left, int middle, int right)
     int number1 = middle - left + 1;
     int number2 = right - middle;
 
-    // warn vectors is used
-    std::vector<int> left_array(number1);
-    std::vector<int> right_array(number2);
+    typename T::value_type left_array[number1];
+    typename T::value_type right_array[number2];
 
     // copy numbers from list to left_array and right_array
     for (int i = 0; i < number1; i++)
@@ -116,6 +122,13 @@ void PmergeMe::mergeSort(T &list, int left, int right)
     merge(list, left, middle, right);
 }
 
+/**
+ * @brief Sorts a list of elements using the Ford-Johnson algorithm (merge-insert).
+ * 
+ * @tparam T The type of the list elements.
+ * @param list The list to sort.
+ * @return double The time taken to sort the list in microseconds.
+ */
 template <typename T>
 double PmergeMe::sort(T& list)
 {
@@ -125,9 +138,8 @@ double PmergeMe::sort(T& list)
 
     std::clock_t end = std::clock();
 
-    double elapsed_time = double(end - start) / CLOCKS_PER_SEC;
-    double elapsed_microseconds = elapsed_time * 1e6;
-    _time = elapsed_microseconds;
+    double elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
+    // double elapsed_microseconds = elapsed_time * 1e6;
 
-    return elapsed_microseconds;
+    return elapsed_time;
 }
