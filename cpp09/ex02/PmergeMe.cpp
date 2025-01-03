@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 00:48:29 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 01:39:00 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,16 @@ void PmergeMe::mergeSort(std::vector<int> &list, int left, int right)
     merge(list, left, middle, right);
 }
 
+#include <ctime>
 void PmergeMe::sort(std::vector<int> &list)
 {
+    std::clock_t start = std::clock();
+
 	mergeSort(list, 0, list.size() - 1);
+
+    std::clock_t end = std::clock();
+
+    double elapsed_time = double(end - start) / CLOCKS_PER_SEC;
+
+    std::cout << "Time: " << elapsed_time * 1000 << " ms" << std::endl;
 }
