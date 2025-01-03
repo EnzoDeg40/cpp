@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 01:43:54 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 11:38:04 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &copy)
     {
     }
     return (*this);
-}
-
-void PmergeMe::print(std::vector<int> &list, std::string message)
-{
-    std::cout << message;
-    for (size_t i = 0; i < list.size(); ++i)
-    {
-        std::cout << list[i] << " ";
-    }
-    std::cout << std::endl;
 }
 
 void PmergeMe::insertSort(std::vector<int> &list, int left, int right)
