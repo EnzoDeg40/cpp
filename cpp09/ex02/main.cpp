@@ -6,11 +6,12 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:52:05 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 01:44:30 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 12:39:25 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <vector>
+#include <deque>
 #include <algorithm>
 #include "PmergeMe.hpp"
 
@@ -25,6 +26,7 @@ int main(int ac, char **av)
     }
 
     std::vector<int> array;
+    std::deque<int> array2;
     for (int i = 1; i < ac; i++)
     {
         int n = atoi(av[i]);
@@ -34,11 +36,15 @@ int main(int ac, char **av)
             return 1;
         }
         array.push_back(n);
+        array2.push_back(n);
     }
     pmergeMe.print(array, "Before: ");
-    pmergeMe.sort(array);
+    double result1 = pmergeMe.sort(array);
+    double result2 = pmergeMe.sort(array2);
     pmergeMe.print(array, "After: ");
-    pmergeMe.time(array);
+
+    std::cout << "Time to process a range of " << array.size() << " elements with vector: " << result1 << " µs" << std::endl;
+    std::cout << "Time to process a range of " << array2.size() << " elements with deque: " << result2 << " µs" << std::endl;
 
     return 0;
 }

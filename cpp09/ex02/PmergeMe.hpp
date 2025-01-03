@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 11:57:39 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 12:50:18 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ public:
     PmergeMe &operator=(const PmergeMe &copy);
     
     template <typename T> void print(T &list, std::string message);
-    template <typename T> void sort(T &list);
-    template <typename T> void time(T &list);
+    template <typename T> double sort(T &list);
 };
 
 #include "PmergeMe.tpp"

@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 12:00:18 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 12:50:52 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@ void PmergeMe::print(T &list, std::string message)
         std::cout << list[i] << " ";
     }
     std::cout << std::endl;
-}
-
-template <typename T>
-void PmergeMe::time(T& list)
-{
-    // std::cout << "Time: " << _time << " µs" << std::endl;
-    std::cout << "Time to process a range of " << list.size() << " elements with std::vector<int>: " << _time << " µs" << std::endl;
 }
 
 template <typename T>
@@ -57,6 +50,7 @@ void PmergeMe::merge(T &list, int left, int middle, int right)
     int number1 = middle - left + 1;
     int number2 = right - middle;
 
+    // warn vectors is used
     std::vector<int> left_array(number1);
     std::vector<int> right_array(number2);
 
@@ -123,7 +117,7 @@ void PmergeMe::mergeSort(T &list, int left, int right)
 }
 
 template <typename T>
-void PmergeMe::sort(T& list)
+double PmergeMe::sort(T& list)
 {
     std::clock_t start = std::clock();
 
@@ -135,5 +129,5 @@ void PmergeMe::sort(T& list)
     double elapsed_microseconds = elapsed_time * 1e6;
     _time = elapsed_microseconds;
 
-    // std::cout << "Time: " << elapsed_microseconds << " µs" << std::endl;
+    return elapsed_microseconds;
 }
