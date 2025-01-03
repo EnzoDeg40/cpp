@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:52:05 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 00:46:44 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 01:05:26 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,30 @@
 #include <algorithm>
 #include "PmergeMe.hpp"
 
-int main()
+int main(int ac, char **av)
 {
     PmergeMe pmergeMe;
     
-    int numbers_array[] = {8, 2, 5, 3, 4, 7, 6, 1, 9, 0, 10};
-    std::vector<int> array(numbers_array, numbers_array + sizeof(numbers_array) / sizeof(int));
+    if (ac < 2)
+    {
+        std::cerr << "Usage: " << av[0] << " [number1] [number2] ... [numberN]" << std::endl;
+        return 1;
+    }
 
-    pmergeMe.print(array, "Before sort : ");
+    std::vector<int> array;
+    for (int i = 1; i < ac; i++)
+    {
+        int n = atoi(av[i]);
+        if (n < 0)
+        {
+            std::cerr << "Error: " << av[i] << " is not a positive number." << std::endl;
+            return 1;
+        }
+        array.push_back(n);
+    }
+    pmergeMe.print(array, "Before: ");
     pmergeMe.sort(array);
-    pmergeMe.print(array, "After sort : ");
+    pmergeMe.print(array, "After: ");
 
     return 0;
 }
