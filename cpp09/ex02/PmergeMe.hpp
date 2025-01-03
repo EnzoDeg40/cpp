@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 00:48:33 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 01:44:20 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <ctime>
 
 class PmergeMe
 {
 private:
+    double _time;
+
     void insertSort(std::vector<int> &list, int left, int right);
     void merge(std::vector<int> &list, int left, int middle, int right);
     void mergeSort(std::vector<int> &list, int left, int right);
@@ -31,6 +34,6 @@ public:
     
     void print(std::vector<int> &list, std::string message);
     void sort(std::vector<int> &list);
-
+    void time(std::vector<int>& list);
 };
 

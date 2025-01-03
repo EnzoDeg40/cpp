@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 09:52:05 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 01:05:26 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 01:44:30 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int ac, char **av)
     pmergeMe.print(array, "Before: ");
     pmergeMe.sort(array);
     pmergeMe.print(array, "After: ");
+    pmergeMe.time(array);
 
     return 0;
 }

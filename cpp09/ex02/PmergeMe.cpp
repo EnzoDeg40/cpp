@@ -6,13 +6,13 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 01:39:00 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 01:43:54 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe()
+PmergeMe::PmergeMe() : _time(0)
 {
 }
 
@@ -132,16 +132,23 @@ void PmergeMe::mergeSort(std::vector<int> &list, int left, int right)
     merge(list, left, middle, right);
 }
 
-#include <ctime>
-void PmergeMe::sort(std::vector<int> &list)
+void PmergeMe::time(std::vector<int>& list)
+{
+    // std::cout << "Time: " << _time << " µs" << std::endl;
+    std::cout << "Time to process a range of " << list.size() << " elements with std::vector<int>: " << _time << " µs" << std::endl;
+}
+
+void PmergeMe::sort(std::vector<int>& list)
 {
     std::clock_t start = std::clock();
 
-	mergeSort(list, 0, list.size() - 1);
+    mergeSort(list, 0, list.size() - 1);
 
     std::clock_t end = std::clock();
 
     double elapsed_time = double(end - start) / CLOCKS_PER_SEC;
+    double elapsed_microseconds = elapsed_time * 1e6;
+    _time = elapsed_microseconds;
 
-    std::cout << "Time: " << elapsed_time * 1000 << " ms" << std::endl;
+    // std::cout << "Time: " << elapsed_microseconds << " µs" << std::endl;
 }
