@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 11:46:09 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/03 11:57:39 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class PmergeMe
 private:
     double _time;
 
-    void insertSort(std::vector<int> &list, int left, int right);
-    void merge(std::vector<int> &list, int left, int middle, int right);
-    void mergeSort(std::vector<int> &list, int left, int right);
+    template <typename T> void insertSort(T &list, int left, int right);
+    template <typename T> void merge(T &list, int left, int middle, int right);
+    template <typename T> void mergeSort(T &list, int left, int right);
 
 public:
     PmergeMe();
