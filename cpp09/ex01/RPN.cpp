@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 13:36:00 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 15:42:43 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/04 14:27:32 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void RPN::processToken(const std::string &token, std::stack<int> &tokens)
         int a = tokens.top();
         tokens.pop();
 
-        applyOperation(token, a, b);
+        int result = applyOperation(token, a, b);
+        tokens.push(result);
         return;
     }
 
