@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 14:19:06 by edegraev          #+#    #+#             */
-/*   Updated: 2024/12/06 12:40:54 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/05 18:27:44 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,9 +133,11 @@ int BitcoinExchange::stoi(std::string const &str)
 double BitcoinExchange::stod(std::string const &str)
 {
     double result;
-    std::stringstream convert;
-    convert << str;
-    convert >> result;
+    std::stringstream convert(str);
+    if (!(convert >> result))
+    {
+        throw std::runtime_error("Error: Invalid number format");
+    }
     return result;
 }
 
@@ -156,6 +158,16 @@ void BitcoinExchange::parseData(std::string const &line, bool isUser)
     }
     std::string key = line.substr(0, pos);
     double value = stod(line.substr(pos + 1));
+    if (value < 0)
+    {
+        std::cerr << "Error: not a positive number." << std::endl;
+        return;
+    }
+    if(value > 2147483647)
+    {
+        std::cerr << "Error: too large a number." << std::endl;
+        return;
+    }
     if (isUser)
     {
         key = key.substr(0, key.size() - 1);
