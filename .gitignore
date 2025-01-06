@@ -8,6 +8,7 @@ weapon
 sed
 *.replace
 *.txt
+!input.txt
 claptrap
 fragtrap
 animal
