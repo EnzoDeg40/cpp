@@ -6,7 +6,7 @@
 /*   By: edegraev <edegraev@student.forty2.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 00:25:51 by edegraev          #+#    #+#             */
-/*   Updated: 2025/01/03 20:58:08 by edegraev         ###   ########.fr       */
+/*   Updated: 2025/01/06 09:27:47 by edegraev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,6 @@ double PmergeMe::sort(T& list)
     std::clock_t end = std::clock();
 
     double elapsed_time = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1e6;
-    // double elapsed_microseconds = elapsed_time * 1e6;
 
     return elapsed_time;
 }
